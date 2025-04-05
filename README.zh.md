@@ -1,5 +1,7 @@
 <h1 align=center>Hugo Theme Ladder | <a href="https://hugo-ladder.pages.dev/" rel="nofollow">Demo</a></h1>
 
+<h2 align=center>该主题已经不再维护，已迁移到 https://github.com/guangzhengli/nextjs-blog-template </h2>
+
 <h4 align=center>🌈 简洁 | ⏩ 快速 | 📰 聚焦阅读 | 🌐 多语言 | 🌙 多种样式 | 📱 移动端支持</h4>
 
 [Demo 网站](https://hugo-ladder.pages.dev/zh/) 包括了所有的安装文档信息，例如如何免费构建独立的博客网站，如何。你可以通过直接访问网站，来获得原生体验。

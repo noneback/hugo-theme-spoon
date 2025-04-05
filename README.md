@@ -1,5 +1,9 @@
 <h1 align=center>Hugo Theme Ladder | <a href="https://hugo-ladder.pages.dev/" rel="nofollow">Demo</a></h1>
 
+<h2 align=center>该主题已经不再维护，已迁移到 https://github.com/guangzhengli/nextjs-blog-template</h2>
+
+<h2 align=center>This theme was not support anymore, please migrate to https://github.com/guangzhengli/nextjs-blog-template</h2>
+
 <h4 align=center>🌈 Clean | ⏩ Fast | 📰 Focus on Reading | 🌐 Multi language | 🌙 Multi Dark Theme | 📱 Mobile support</h4>
 
 English README | [简体中文说明](README.zh.md)
