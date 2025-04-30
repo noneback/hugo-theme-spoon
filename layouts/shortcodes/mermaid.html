@@ -1,0 +1,7 @@
+{{ $_hugo_config := `{ "version": 1 }` }}
+
+<div style="display: flex; justify-content: center; width: 100%; margin: 20px 0;">
+    <div class="mermaid" style="width: 100%; max-width: 800px; min-width: 300px;">
+        {{ safeHTML .Inner }}
+    </div>
+</div>

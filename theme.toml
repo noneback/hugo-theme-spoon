@@ -1,0 +1,184 @@
+baseURL = "https://hugo-ladder.pages.dev"
+title = "LADDER"
+theme = "hugo-theme-ladder"
+license = "MIT"
+licenselink = "https://github.com/guangzhengli/hugo-theme-ladder/blob/master/LICENSE"
+description = "A fast, clean Hugo theme"
+homepage = "https://hugo-ladder.pages.dev"
+defaultContentLanguage = "en"
+googleAnalytics = "G-xxx"
+paginate = 10
+
+[[menu.main]]
+name = "Blog"
+url = "/blog"
+weight = 1
+
+[[menu.main]]
+name = "Tags"
+url = "/tags"
+weight = 2
+
+[[menu.main]]
+name = "Archive"
+url = "/archives"
+weight = 3
+
+[[menu.main]]
+name = "Guestbook"
+url = "/guestbook"
+weight = 4
+
+[[menu.main]]
+name = "Dashboard"
+url = "https://umami-ochre-nu.vercel.app/share/R1lHz7QY/hugo-ladder-exampleSite"
+weight = 5
+
+[params]
+brand = "HOME"
+avatarURL = "/images/avatar.png"
+author = "Hugo Ladder"
+authorDescription = "A clean, fast hugo theme focused on Reading"
+info = "Ladder is a clean, simple but beautiful theme with awesome features"
+favicon = "/images/avatar.png"
+darkModeTheme = "data-dark-mode"
+
+  [params.options]
+  showDarkMode = true
+  enableImgZooming = true
+  enableMultiLang = true
+  showMetaTags = true
+
+[params.comments.giscus]
+enable = true
+repo = "username/reponame"
+repo_id = "xxx"
+category = "Announcements"
+category_id = "DIC_xxx"
+mapping = "pathname"
+position = "top"
+lang = "en"
+
+[params.comments.utteranc]
+enable = false
+repo = "username/reponame"
+issueTerm = "pathname"
+
+[params.analytics.google]
+SiteVerificationTag = "xxx"
+
+[params.analytics.umami]
+enable = true
+website_id = "xxx"
+url = "https://umami-ochre-nu.vercel.app/hugo-ladder.js"
+
+  [params.guestbook]
+  title = "Guestbook"
+  description = "Leave a comment below. It could be anything –- question, appreciation, information, or even humor."
+
+  [[params.social]]
+  name = "GitHub"
+  pre = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>'
+  url = "https://github.com/guangzhengli/hugo-theme-ladder"
+
+  [[params.social]]
+  name = "Dashboard"
+  pre = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-box"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>'
+  url = "https://umami-ochre-nu.vercel.app/share/R1lHz7QY/hugo-ladder-exampleSite"
+
+[languages.en]
+languageName = "EN"
+
+[languages.zh]
+languageName = "中"
+author = "Ladder 主题"
+authorDescription = "一个美观，快速并且专注于阅读的主题"
+info = "帮助开发者构建一个免费并且漂亮的博客网站，记录自己的思考并且提高自己的影响力"
+
+  [languages.zh.guestbook]
+  title = "留言板"
+  description = "您的评论，会让该网站更精彩！"
+
+[[languages.zh.menu.main]]
+name = "文章"
+url = "/blog"
+weight = 1
+
+[[languages.zh.menu.main]]
+name = "分类"
+url = "/tags"
+weight = 2
+
+[[languages.zh.menu.main]]
+name = "历史文章"
+url = "/archives"
+weight = 3
+
+[[languages.zh.menu.main]]
+name = "留言板"
+url = "/guestbook"
+weight = 4
+
+[[languages.zh.menu.main]]
+name = "网站统计"
+url = "https://umami-ochre-nu.vercel.app/share/R1lHz7QY/hugo-ladder-exampleSite"
+weight = 5
+
+[languages.uk]
+languageName = "Українська"
+
+  [languages.uk.guestbook]
+  title = "Гостьова книга"
+  description = "Залиште коментар нижче. Це може бути будь-що - запитання, вдячність, інформація або навіть гумор."
+
+[[languages.zh.menu.main]]
+name = "Блог"
+url = "/blog"
+weight = 1
+
+[[languages.zh.menu.main]]
+name = "Теги"
+url = "/tags"
+weight = 2
+
+[[languages.zh.menu.main]]
+name = "Архів"
+url = "/archives"
+weight = 3
+
+[[languages.zh.menu.main]]
+name = "Гостьова книга"
+url = "/guestbook"
+weight = 4
+
+[languages.pt-br]
+languageName = "🇧🇷"
+
+  [languages.pt-br.guestbook]
+  title = "Livro de Visitas"
+  description = "Deixe um comentário abaixo. Pode ser qualquer coisa - uma pergunta, agradecimento, informação ou até mesmo uma piada."
+
+[[languages.pt-br.menu.main]]
+name = "Blog"
+url = "/blog"
+weight = 1
+
+[[languages.pt-br.menu.main]]
+name = "Tags"
+url = "/tags"
+weight = 2
+
+[[languages.pt-br.menu.main]]
+name = "Arquivos"
+url = "/archives"
+weight = 3
+
+[[languages.pt-br.menu.main]]
+name = "Livro de Visitas"
+url = "/guestbook"
+weight = 4
+
+
+[taxonomies]
+series = "series"
+tag = "tags"
