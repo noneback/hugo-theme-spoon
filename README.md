@@ -23,6 +23,8 @@ Demo is built up with [exampleSite Source Code](https://github.com/guangzhengli/
 
 ---
 
+注意：请使用hugo v0.127.0+extended 版本
+
 ## Documentations [`docs`](docs/home.md)
 
 See [`docs`](docs/home.md) folder.
