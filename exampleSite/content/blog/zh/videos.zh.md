@@ -16,7 +16,7 @@ This is a video test post.
 <!--more-->
 ## Twitter Simple Shortcode
 
-{{< tweet user="SanDiegoZoo" id="1453110110599868418" >}}
+{{< x user="SanDiegoZoo" id="1453110110599868418" >}}
 
 <br>
 

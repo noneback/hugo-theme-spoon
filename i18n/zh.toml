@@ -33,3 +33,18 @@ other = "相关系列文章推荐"
 [featured_posts]
 one = "推荐阅读"
 other = "推荐阅读"
+
+[prev_page]
+other = "上一页"
+
+[next_page]
+other = "下一页"
+
+[copy]
+other = "复制"
+
+[copied]
+other = "已复制"
+
+[toc_title]
+other = "目录"

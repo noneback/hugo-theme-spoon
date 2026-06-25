@@ -1,3 +1,6 @@
+@use "sass:color";
+@use "common/variables" as *;
+
 *,
 *:after,
 *:before {
@@ -182,7 +185,7 @@ pre {
 .copy-code:hover,
 .copy-code:focus,
 .copy-code:active {
-  background: darken($code-copy-button, 5%);
+  background: color.adjust($code-copy-button, $lightness: -5%);
   cursor: pointer;
 }
 

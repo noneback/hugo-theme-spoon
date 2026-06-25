@@ -32,6 +32,18 @@
   </div>
   {{ end }}
 
+  {{ $related := .Site.RegularPages.Related . | first 5 }}
+  {{ with $related }}
+  <div class="related-resources">
+    <h3>{{ i18n "related_resources" }}</h3>
+    <ul>
+    {{ range . }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{ end }}
+    </ul>
+  </div>
+  {{ end }}
+
   {{ partial "blog/series.html" . }}
   {{ partial "common/utteranc.html" . }}
   {{ partial "common/giscus.html" . }}

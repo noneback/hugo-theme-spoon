@@ -32,3 +32,18 @@ other = "Related Resources"
 [featured_posts]
 one = "Featured Posts"
 other = "Featured Posts"
+
+[prev_page]
+other = "Prev Page"
+
+[next_page]
+other = "Next Page"
+
+[copy]
+other = "Copy"
+
+[copied]
+other = "Copied"
+
+[toc_title]
+other = "Table of Contents"

@@ -4,3 +4,6 @@
 .DS_Store
 resources/*
 exampleSite/resources/*
+exampleSite/public/
+exampleSite/themes/
+.bin/

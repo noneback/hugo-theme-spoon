@@ -1,89 +1,212 @@
-<h1 align=center>Hugo Theme Ladder | <a href="https://hugo-ladder.pages.dev/" rel="nofollow">Demo</a></h1>
+<h1 align=center>Hugo Theme Spoon</h1>
 
-<h2 align=center>该主题已经不再维护，已迁移到 https://github.com/guangzhengli/nextjs-blog-template </h2>
+<h4 align=center>🌈 简洁 | ⏩ 快速 | 📰 聚焦阅读 | 🌐 多语言 | 🌙 暗色模式 | 📱 移动优先</h4>
 
-<h4 align=center>🌈 简洁 | ⏩ 快速 | 📰 聚焦阅读 | 🌐 多语言 | 🌙 多种样式 | 📱 移动端支持</h4>
+<p align="center">一个现代、快速、简洁的 Hugo 主题，专注于阅读体验。使用 Dart Sass 构建，支持暗色模式、多语言、KaTeX 数学公式、Mermaid 流程图等特性。</p>
 
-[Demo 网站](https://hugo-ladder.pages.dev/zh/) 包括了所有的安装文档信息，例如如何免费构建独立的博客网站，如何。你可以通过直接访问网站，来获得原生体验。
+<p align="center"><a href="README.md">English</a> | 简体中文</p>
 
-Demo 网站是通过这个仓库构建而来 [exampleSite Source Code](https://github.com/guangzhengli/hugo-ladder-exampleSite) (https://github.com/guangzhengli/hugo-ladder-exampleSite)。
-
-[![Hugo Version](https://img.shields.io/static/v1?label=hugo-version&message=0.99.0&color=blue&logo=hugo)](https://github.com/gohugoio/hugo/releases/tag/v0.99.0)[![GitHub license](https://img.shields.io/github/license/guangzhengli/hugo-theme-ladder)](https://github.com/guangzhengli/hugo-theme-ladder/blob/master/LICENSE)[![GitHub stars](https://img.shields.io/github/stars/guangzhengli/hugo-theme-ladder)](https://github.com/guangzhengli/hugo-theme-ladder/stargazers)[![GitHub forks](https://img.shields.io/github/forks/guangzhengli/hugo-theme-ladder)](https://github.com/guangzhengli/hugo-theme-ladder/network)
+> **说明：** 本主题 fork 自 [hugo-theme-ladder](https://github.com/guangzhengli/hugo-theme-ladder) by [guangzhengli](https://github.com/guangzhengli)，并进行了大量修改、适配和功能扩展，以支持最新版本的 Hugo 和现代 Web 标准。原主题已不再活跃维护。
 
 ---
 
 <p align="center">
-  <kbd><img src="https://cdn.jsdelivr.net/gh/guangzhengli/PicURL@master/uPic/VPKI7H.png" alt="Ladder image" title="Mockup"/></kbd>
+  <img src="images/screenshot.png" alt="Hugo Theme Spoon" width="800"/>
 </p>
-
 
 ---
 
-## 文档 [`docs`](docs/home.md)
+## 相比 Ladder 的变化
 
-See [`docs`](docs/home.md) folder.
+| | hugo-theme-ladder | hugo-theme-spoon |
+|---|---|---|
+| Hugo 版本 | v0.99.0 | **v0.140.0+ extended** |
+| SCSS 转译器 | libsass (已废弃) | **Dart Sass** |
+| 暗色模式 | 基础 | **两套主题 + 全面覆盖** |
+| 数学公式 | - | **KaTeX 支持** |
+| 流程图 | - | **Mermaid 支持** |
+| 目录 | 静态 | **可折叠目录** |
+| 代码块 | 基础 | **行号 + 复制按钮** |
+| 阅读进度 | - | **进度条** |
+| 图片加载 | 即时 | **懒加载** |
+| 相关文章 | - | **自动推荐** |
+| 国际化 | 部分 | **完整 i18n 支持** |
+| 代码高亮 | highlight.js | **highlight.js + 行号** |
 
-### 基础使用
+## 特性
 
-* [Quick Start](docs/quick-start.md)
-* [Configurations](docs/configurations.md)
-
-### 高级用法
-
-* [Multi Language](docs/multi-language.md)
-* [Comment System](docs/comment-system.md)
-* [Analytics](docs/analytics.md)
-* [Analytics Umami](docs/umami.md)
+- **快速轻量** — 最小化 CSS/JS，性能优先
+- **简洁设计** — 专注于阅读体验，精美排版
+- **暗色模式** — 内置两套暗色主题（标准暗色 & 冰蓝暗色），平滑切换
+- **多语言支持** — 内置国际化（英语、中文、乌克兰语、葡萄牙语）
+- **响应式设计** — 移动优先，适配所有设备
+- **Dart Sass** — 现代 SCSS 工具链，无废弃依赖
+- **代码高亮** — 语法高亮，支持复制按钮和行号显示
+- **目录导航** — 可折叠的目录，方便长文阅读
+- **KaTeX 数学公式** — 优美的公式渲染（按页启用）
+- **Mermaid 流程图** — 图表渲染支持（按页启用）
+- **阅读进度条** — 文章页面顶部可视化进度显示
+- **图片懒加载** — 自动延迟加载图片，提升性能
+- **相关文章推荐** — 自动推荐相关内容
+- **评论系统** — 支持 Giscus 和 Utterances
+- **网站分析** — 支持 Google Analytics 和 Umami
+- **RSS 订阅** — 内置 RSS 支持
+- **自定义字体** — 使用霞鹜文楷，优美中文排版
 
 ## 快速开始
 
-Just click `Use this template` to create your blog site in the [exampleSite Repository](https://github.com/guangzhengli/hugo-ladder-exampleSite).
+### 前置要求
 
-Create a new repository(GitHub Pages) from hugo-ladder-exampleSite to enter : `username.github.io`.
+- Hugo **v0.140.0+ extended**（需要 Dart Sass 支持）
+- Dart Sass（macOS: `brew install sass/sass/sass`）
 
-**replace the username by your GitHub account**
+### 安装
 
-Then configure the GitHub page setting following:
+1. 创建新的 Hugo 站点：
 
-![nsrExo](https://cdn.jsdelivr.net/gh/guangzhengli/PicURL@master/uPic/nsrExo.png)
-
-🎉🎉🎉 Open the browser and enter: https://username.github.io 🎉🎉🎉
-
-## 最小配置
-
-Clone your repository.
-
-Build and run hugo server by `hugo server -D` and open in browser http://localhost:1313/.
-
-```yml
-baseURL: 'https://hugo-ladder.pages.dev' # set https://username.github.io
-homepage: 'https://hugo-ladder.pages.dev' # set https://username.github.io
-defaultContentLanguage: 'en' #default language
-params:
-  brand: HOME # set the brand of your site
-  avatarURL: /images/avatar.png # avatar, replace your avatar in the /static/images/
-  author: Hugo Ladder # name
-  authorDescription: # description
-  info:  this is a info # information of your blog site
-  favicon: /images/avatar.png # blog site icon，replace your avatar in the /static/images/
-  options:
-    showDarkMode: true # is show dark mode button
-    enableMultiLang: true # is show multi language button
+```bash
+hugo new site myblog
+cd myblog
 ```
 
-Modifying the default configuration. Then push it to your repository.
+2. 添加主题：
 
-## ALL Configuration
+```bash
+git clone https://github.com/your-username/hugo-theme-spoon themes/hugo-theme-spoon
+```
 
-Following this [article](https://guangzhengli.com/blog/en/how-to-create-your-blog-for-free-by-hugo-ladder-in-30min/) to cofiguration.
+3. 配置站点（`config.yml`）：
 
-Following this [article](https://guangzhengli.com/blog/en/how-to-integrate-umami-for-free-to-blog-site/) to configure the umami analytics
+```yaml
+baseURL: 'https://your-site.com'
+title: 我的博客
+theme: hugo-theme-spoon
+defaultContentLanguage: 'zh'
+pagination:
+  pagerSize: 10
 
-## Sponsor
+params:
+  brand: 首页
+  avatarURL: /images/avatar.png
+  author: 你的名字
+  authorDescription: 你的简介
+  info: 你的博客信息
+  favicon: /images/avatar.ico
+  options:
+    showDarkMode: true
+    enableImgZooming: true
+    enableMultiLang: true
+    showMetaTags: true
+```
 
-如果这份教程对你有帮助，欢迎请作者喝杯咖啡。
-https://guangzhengli.com/sponsors
+4. 启动服务器：
 
-## Special Thanks
+```bash
+hugo server -D
+```
 
-* Hugo Ladder is inspired by [hugo-paperMod](https://github.com/adityatelange/hugo-PaperMod).
+在浏览器中打开 http://localhost:1313/
+
+## 使用方法
+
+### 数学公式
+
+在页面 front matter 中添加 `math: true`：
+
+```yaml
+---
+title: "我的数学文章"
+math: true
+---
+```
+
+### Mermaid 流程图
+
+在页面 front matter 中添加 `mermaid: true`：
+
+```yaml
+---
+title: "我的流程图"
+mermaid: true
+---
+```
+
+然后在代码块中使用标准 Mermaid 语法：
+
+````
+```mermaid
+graph TD
+    A[开始] --> B[结束]
+```
+````
+
+### 多语言配置
+
+在 `config.yml` 中配置语言：
+
+```yaml
+languages:
+  zh:
+    label: 中文
+    menu:
+      main:
+        - name: 文章
+          url: /blog
+          weight: 1
+        - name: 标签
+          url: /tags
+          weight: 2
+        - name: 归档
+          url: /archives
+          weight: 3
+  en:
+    label: English
+    menu:
+      main:
+        - name: Blog
+          url: /blog
+          weight: 1
+        - name: Tags
+          url: /tags
+          weight: 2
+        - name: Archive
+          url: /archives
+          weight: 3
+```
+
+### 评论系统
+
+支持 Giscus（推荐）和 Utterances，在 `params.comments` 中配置：
+
+```yaml
+params:
+  comments:
+    giscus:
+      enable: true
+      repo: username/repo
+      repo_id: R_xxx
+      category: Announcements
+      category_id: DIC_xxx
+      mapping: pathname
+      lang: zh
+```
+
+## 文档
+
+详见 [`docs`](docs/home.md) 文件夹：
+
+- [快速开始](docs/quick-start.md)
+- [配置说明](docs/configurations.md)
+- [多语言](docs/multi-language.md)
+- [评论系统](docs/comment-system.md)
+- [网站分析](docs/analytics.md)
+
+## 许可证
+
+[MIT](LICENSE)
+
+## 致谢
+
+- 最初 fork 自 [hugo-theme-ladder](https://github.com/guangzhengli/hugo-theme-ladder) by [guangzhengli](https://github.com/guangzhengli) — 感谢原作者提供优秀的设计基础。
+- 灵感来自 [hugo-PaperMod](https://github.com/adityatelange/hugo-PaperMod)
+- 字体：[霞鹜文楷 LXGW WenKai](https://github.com/lxgw/LxgwWenKai)

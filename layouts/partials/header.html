@@ -40,13 +40,13 @@
             {{ end -}}
 
             {{ if .Site.Params.options.enableMultiLang -}}
-            {{ if .Site.IsMultiLingual }}
+            {{ if hugo.IsMultilingual }}
             {{ $node := . }}
-            {{ .Scratch.Set "separator" true }}
+            {{ .Store.Set "separator" true }}
             {{ range (default .Site.Home.AllTranslations .Translations) }}
             {{ if ne $.Site.Language .Language }}
             <li class="navigation-item navigation-language">
-                <a href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+                <a href="{{ .Permalink }}">{{ .Language.Label }}</a>
             </li>
             {{ end }}
             {{ end }}

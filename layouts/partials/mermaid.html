@@ -1,0 +1,32 @@
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Convert Hugo's code blocks to Mermaid format
+        document.querySelectorAll('code.language-mermaid').forEach(function(el) {
+            var pre = el.parentElement;
+            var div = document.createElement('div');
+            div.className = 'mermaid';
+            div.textContent = el.textContent;
+            pre.parentNode.replaceChild(div, pre);
+        });
+        
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            securityLevel: 'loose',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true
+            },
+            sequence: {
+                useMaxWidth: true
+            }
+        });
+    });
+</script>
+<style>
+    .mermaid {
+        text-align: center;
+        margin: 1.5rem 0;
+    }
+</style>

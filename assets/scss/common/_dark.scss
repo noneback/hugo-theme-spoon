@@ -1,3 +1,5 @@
+@use "common/variables" as *;
+
 [data-dark-mode] body .navigation .navigation-list .navigation-dark .toggle-light {
   display: block;
   color: $body-color-dark;
@@ -152,4 +154,240 @@
 
 [data-dark-mode] .tags .tags-list a {
   background: $gray-800;
+  color: $body-color-dark;
+}
+
+// ====== Table ======
+[data-dark-mode] table {
+  color: $body-color-dark;
+}
+
+[data-dark-mode] table th,
+[data-dark-mode] table:not(.highlighttable, .highlight table, .gist .highlight) td {
+  border-bottom-color: $gray-600;
+}
+
+[data-dark-mode] table th {
+  border-bottom-color: $gray-400;
+}
+
+// ====== Blog card ======
+[data-dark-mode] body .blog-card {
+  background: $body-bg-dark;
+  border-bottom-color: $gray-600;
+
+  h3 a {
+    color: $body-color-dark;
+  }
+
+  p small {
+    color: $gray-400;
+  }
+}
+
+// ====== Blog content links ======
+[data-dark-mode] .blog-content {
+  a {
+    box-shadow: 0 0;
+    text-decoration: none;
+    color: $color-dark-blue;
+  }
+}
+
+// ====== TOC ======
+[data-dark-mode] .blog-toc {
+  a {
+    color: $body-color-dark;
+  }
+
+  a:hover {
+    color: $body-color-dark;
+  }
+
+  .toc-container summary {
+    color: $body-color-dark;
+  }
+
+  .toc-container summary:hover {
+    color: $color-dark-blue;
+  }
+
+  li:not(:first-child) {
+    border-top-color: $gray-600;
+  }
+}
+
+// ====== Related resources ======
+[data-dark-mode] .blog-single .related-resources {
+  border-top: 1px solid $body-color-dark;
+
+  h3 {
+    color: $body-color-dark;
+  }
+
+  ul li {
+    border-bottom-color: $gray-600;
+
+    a {
+      color: $body-color-dark;
+    }
+
+    a:hover {
+      color: $color-dark-blue;
+    }
+  }
+}
+
+// ====== Code block with line numbers ======
+[data-dark-mode] .highlight {
+  .lnt, .ln {
+    color: $gray-500;
+    border-right-color: $gray-600;
+  }
+}
+
+// ====== Copy button ======
+[data-dark-mode] .copy-code {
+  background: $color-dark-pink-300;
+  color: $body-bg-dark;
+}
+
+// ====== Reading progress bar ======
+[data-dark-mode] .reading-progress {
+  background: $color-dark-blue;
+}
+
+// ====== Top link ======
+[data-dark-mode] .top-link {
+  background: $gray-800;
+}
+
+[data-dark-mode] .top-link svg {
+  color: $body-color-dark;
+}
+
+[data-dark-mode] .top-link:hover {
+  background: $body-overlay-dark;
+}
+
+// ====== Footer ======
+[data-dark-mode] .footer {
+  color: $gray-400;
+
+  a {
+    color: $body-color-dark;
+  }
+
+  a:hover {
+    color: $color-dark-blue;
+  }
+}
+
+// ====== Featured posts ======
+[data-dark-mode] .home .featured .featured-single {
+  border-top-color: $gray-600;
+
+  h4 a {
+    color: $body-color-dark;
+  }
+
+  p {
+    color: $gray-400;
+  }
+}
+
+// ====== Home intro ======
+[data-dark-mode] .home .info .intro {
+  a {
+    box-shadow: 0 0;
+    text-decoration: none;
+    color: $color-dark-blue;
+  }
+}
+
+// ====== Card ======
+[data-dark-mode] .card-wrapper .card {
+  background: $gray-900;
+  box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.4);
+
+  &:hover {
+    box-shadow: 0 6px 12px -4px rgba(0, 0, 0, 0.5);
+  }
+
+  p {
+    color: $gray-400;
+  }
+}
+
+// ====== Archive ======
+[data-dark-mode] .archive-entry a {
+  color: $body-color-dark;
+}
+
+[data-dark-mode] .archive-entry:hover {
+  color: $color-dark-blue;
+}
+
+[data-dark-mode] .archive-count,
+[data-dark-mode] .archive-meta {
+  color: $gray-400;
+  font-size: 1.5rem;
+}
+
+// ====== Paginator ======
+[data-dark-mode] .paginator a {
+  color: $body-color-dark;
+}
+
+[data-dark-mode] .paginator a:hover {
+  color: $color-dark-blue;
+}
+
+// ====== Blockquote ======
+[data-dark-mode] blockquote {
+  border-left: 3px solid $gray-500 !important;
+  color: $gray-400;
+}
+
+// ====== Mermaid ======
+[data-dark-mode] .mermaid {
+  // Mermaid will use its own dark theme via JS
+}
+
+// ====== Blog single meta ======
+[data-dark-mode] .blog-single .blog-title h1 {
+  color: $body-color-dark;
+}
+
+[data-dark-mode] .blog-single p small {
+  color: $gray-400;
+
+  a {
+    color: $gray-400;
+  }
+}
+
+// ====== Navigation ======
+[data-dark-mode] .navigation .navigation-list {
+  @media only screen and (max-width: 768px) {
+    background-color: $body-bg-dark;
+    border-top-color: $gray-600;
+    border-bottom-color: $gray-600;
+  }
+
+  .menu-separator span {
+    color: $gray-500;
+  }
+}
+
+[data-dark-mode] .navigation .menu-button {
+  @media only screen and (max-width: 768px) {
+    span {
+      background: $body-color-dark;
+    }
+  }
+}
+
+[data-dark-mode] body .language-item a:hover {
+  color: $body-color-dark;
 }

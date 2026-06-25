@@ -1,5 +1,5 @@
 {{ $featured := where .Site.Pages "Params.featured" true }}
-{{ if gt $featured 0 }}
+{{ if $featured }}
   <h2>{{- i18n "featured_posts" -}}</h2>
 {{ end }}
 <div class="featured-list">

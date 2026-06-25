@@ -19,11 +19,12 @@
     {{ partial "common/extensions.html" . }}
     {{ partial "common/icon.html" . }}
     {{ if .Params.math }}{{ partial "math.html" . }}{{ end }}
+    {{ if .Params.mermaid }}{{ partial "mermaid.html" . }}{{ end }}
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css" />
 
-    {{ $cssFile := (dict "targetPath" "css/main.css" ) }}
-    {{ $styles := resources.Get "/scss/app.scss" | toCSS $cssFile | minify | fingerprint }}
+    {{ $cssOpts := dict "targetPath" "css/main.css" "transpiler" "dartsass" }}
+    {{ $styles := resources.Get "/scss/app.scss" | css.Sass $cssOpts | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous" media="screen" />
 
     {{ $highlight := resources.Get "scss/highlight/github-dark.min.css" | minify | fingerprint }}
@@ -37,4 +38,19 @@
         {{ $darkModeInit := resources.Get "js/darkmode-init.js" | js.Build | minify -}}
         <script>{{ $darkModeInit.Content | safeJS }}</script>
     {{ end -}}
+
+    {{ if .IsPage }}
+    <style>
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--fg-color, #333);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+    </style>
+    {{ end }}
 </head>

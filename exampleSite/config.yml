@@ -1,20 +1,32 @@
 baseURL: 'https://hugo-ladder.pages.dev'
 title: LADDER
-theme: hugo-theme-ladder
+theme: hugo-theme-spoon
 license: MIT
 licenselink: 'https://github.com/guangzhengli/hugo-theme-ladder/blob/master/LICENSE'
 description: 'A fast, clean Hugo theme'
 homepage: 'https://hugo-ladder.pages.dev'
 defaultContentLanguage: 'en'
-googleAnalytics: G-7E4JNTL3ES
 enableRobotsTXT: true
-paginate: 10
 hasCJKLanguage: true
+ignoreLogs:
+  - 'warning-goldmark-raw-html'
 copyright: "2023 GuangzhengLi All rights reserved"
-Author:
-  name: "Guangzheng Li"
-  email: "iguangzhengli@gmail.com"
+services:
+  googleAnalytics:
+    id: G-7E4JNTL3ES
+pagination:
+  pagerSize: 10
+markup:
+  highlight:
+    lineNos: true
+  goldmark:
+    renderer:
+      unsafe: true
+
 params:
+  siteAuthor:
+    name: "Guangzheng Li"
+    email: "iguangzhengli@gmail.com"
   brand: HOME
   avatarURL: /images/avatar.png
   author: Hugo Ladder
@@ -88,7 +100,7 @@ params:
       url: 'https://twitter.com/iguangzhengli'
 languages:
   en:
-    languageName: English
+    label: English
     menu:
       main:
         - name: Blog
@@ -110,7 +122,7 @@ languages:
           url: https://umami-ochre-nu.vercel.app/share/o3zAba1V/guangzhengli
           weight: 6
   zh:
-    languageName: 中文
+    label: 中文
     author: Ladder 主题
     authorDescription: 一个美观，快速并且专注于阅读的主题
     info: 帮助开发者构建一个免费并且漂亮的博客网站，记录自己的思考并且提高自己的影响力

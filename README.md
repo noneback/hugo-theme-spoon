@@ -1,101 +1,200 @@
-<h1 align=center>Hugo Theme Ladder | <a href="https://hugo-ladder.pages.dev/" rel="nofollow">Demo</a></h1>
+<h1 align=center>Hugo Theme Spoon</h1>
 
-<h2 align=center>该主题已经不再维护，已迁移到 https://github.com/guangzhengli/nextjs-blog-template</h2>
+<h4 align=center>🌈 Clean | ⏩ Fast | 📰 Focus on Reading | 🌐 Multi-language | 🌙 Dark Mode | 📱 Mobile-first</h4>
 
-<h2 align=center>This theme was not support anymore, please migrate to https://github.com/guangzhengli/nextjs-blog-template</h2>
+<p align="center">A modern, fast, and clean Hugo theme focused on reading experience. Built with Dart Sass, supporting dark mode, multi-language, KaTeX math, Mermaid diagrams, and more.</p>
 
-<h4 align=center>🌈 Clean | ⏩ Fast | 📰 Focus on Reading | 🌐 Multi language | 🌙 Multi Dark Theme | 📱 Mobile support</h4>
+<p align="center">English | <a href="README.zh.md">简体中文</a></p>
 
-English README | [简体中文说明](README.zh.md)
-
-The [Demo | ExampleSite](https://hugo-ladder.pages.dev/) includes a lot of documentation about Installation, Features with a few more stuff. Make sure you visit it, to get an awesome hands-on experience and get to know about the features ...
-
-Demo is built up with [exampleSite Source Code](https://github.com/guangzhengli/hugo-ladder-exampleSite) (https://github.com/guangzhengli/hugo-ladder-exampleSite) as source.
-
-[![Hugo Version](https://img.shields.io/static/v1?label=hugo-version&message=0.99.0&color=blue&logo=hugo)](https://github.com/gohugoio/hugo/releases/tag/v0.99.0)[![GitHub license](https://img.shields.io/github/license/guangzhengli/hugo-theme-ladder)](https://github.com/guangzhengli/hugo-theme-ladder/blob/master/LICENSE)[![GitHub stars](https://img.shields.io/github/stars/guangzhengli/hugo-theme-ladder)](https://github.com/guangzhengli/hugo-theme-ladder/stargazers)[![GitHub forks](https://img.shields.io/github/forks/guangzhengli/hugo-theme-ladder)](https://github.com/guangzhengli/hugo-theme-ladder/network)
+> **Note:** This theme is forked from [hugo-theme-ladder](https://github.com/guangzhengli/hugo-theme-ladder) by [guangzhengli](https://github.com/guangzhengli), and has been heavily modified, adapted, and extended with new features to support the latest Hugo versions and modern web standards. The original theme is no longer actively maintained.
 
 ---
 
 <p align="center">
-  <kbd><img src="https://cdn.jsdelivr.net/gh/guangzhengli/PicURL@master/uPic/VPKI7H.png" alt="Ladder image" title="Mockup"/></kbd>
+  <img src="images/screenshot.png" alt="Hugo Theme Spoon" width="800"/>
 </p>
-
 
 ---
 
-注意：请使用hugo v0.127.0+extended 版本
+## What's Changed from Ladder
 
-## Documentations [`docs`](docs/home.md)
+| | hugo-theme-ladder | hugo-theme-spoon |
+|---|---|---|
+| Hugo Version | v0.99.0 | **v0.140.0+ extended** |
+| SCSS Transpiler | libsass (deprecated) | **Dart Sass** |
+| Dark Mode | Basic | **Two themes + comprehensive coverage** |
+| Math Formulas | - | **KaTeX support** |
+| Flowcharts | - | **Mermaid support** |
+| TOC | Static | **Collapsible TOC** |
+| Code Block | Basic | **Line numbers + copy button** |
+| Reading Progress | - | **Progress bar** |
+| Image Loading | Eager | **Lazy loading** |
+| Related Posts | - | **Auto recommendations** |
+| i18n | Partial | **Full i18n with more keys** |
+| Code Highlight | highlight.js | **highlight.js + line numbers** |
 
-See [`docs`](docs/home.md) folder.
+## Features
 
-### Basic Usage
-
-* [Quick Start](docs/quick-start.md)
-* [Configurations](docs/configurations.md)
-
-### Extra Guides
-
-* [Multi Language](docs/multi-language.md)
-* [Comment System](docs/comment-system.md)
-* [Analytics](docs/analytics.md)
-* [Analytics Umami](docs/umami.md)
+- **Fast & Lightweight** — Minimal CSS/JS, optimized for performance
+- **Clean Design** — Focused on reading experience with beautiful typography
+- **Dark Mode** — Two built-in dark themes (Standard Dark & Icy Dark) with smooth toggle
+- **Multi-language** — Built-in i18n support (English, Chinese, Ukrainian, Portuguese)
+- **Responsive** — Mobile-first design, works on all devices
+- **Dart Sass** — Modern SCSS toolchain, no deprecated libsass dependency
+- **Code Highlight** — Syntax highlighting with copy button and line numbers
+- **Table of Contents** — Collapsible TOC for long articles
+- **KaTeX Math** — Beautiful math formula rendering (opt-in per page)
+- **Mermaid Diagrams** — Flowcharts and diagrams rendering (opt-in per page)
+- **Reading Progress** — Visual progress bar on article pages
+- **Lazy Loading** — Automatic image lazy loading for better performance
+- **Related Posts** — Automatic related article recommendations
+- **Comment System** — Support for Giscus and Utterances
+- **Analytics** — Google Analytics and Umami support
+- **RSS Feed** — Built-in RSS subscription support
+- **Custom Fonts** — LXGW WenKai font for beautiful CJK rendering
 
 ## Quick Start
 
-Use this command to start.
-```shell
-hugo server -s exampleSite --themesDir=../.. --disableFastRender
+### Prerequisites
+
+- Hugo **v0.140.0+ extended** (requires Dart Sass support)
+- Dart Sass (`brew install sass/sass/sass` on macOS)
+
+### Installation
+
+1. Create a new Hugo site:
+
+```bash
+hugo new site myblog
+cd myblog
 ```
 
-Or click `Use this template` to create your blog site in the [exampleSite Repository](https://github.com/guangzhengli/hugo-ladder-exampleSite).
+2. Add the theme:
 
-Create a new repository(GitHub Pages) from hugo-ladder-exampleSite to enter : `username.github.io`.
+```bash
+git clone https://github.com/your-username/hugo-theme-spoon themes/hugo-theme-spoon
+```
 
-**replace the username by your GitHub account**
+3. Configure your site (`config.yml`):
 
-Then configure the GitHub page setting following:
+```yaml
+baseURL: 'https://your-site.com'
+title: My Blog
+theme: hugo-theme-spoon
+defaultContentLanguage: 'en'
+pagination:
+  pagerSize: 10
 
-![nsrExo](https://cdn.jsdelivr.net/gh/guangzhengli/PicURL@master/uPic/nsrExo.png)
-
-🎉🎉🎉 Open the browser and enter: https://username.github.io 🎉🎉🎉
-
-## Minimal Configuration
-
-Clone your repository.
-
-Build and run hugo server by `hugo server -D` and open in browser http://localhost:1313/.
-
-```yml
-baseURL: 'https://hugo-ladder.pages.dev' # set https://username.github.io
-homepage: 'https://hugo-ladder.pages.dev' # set https://username.github.io
-defaultContentLanguage: 'en' #default language
 params:
-  brand: HOME # set the brand of your site
-  avatarURL: /images/avatar.png # avatar, replace your avatar in the /static/images/
-  author: Hugo Ladder # name
-  authorDescription: # description
-  info:  this is a info # information of your blog site
-  favicon: /images/avatar.png # blog site icon，replace your avatar in the /static/images/
+  brand: HOME
+  avatarURL: /images/avatar.png
+  author: Your Name
+  authorDescription: Your description
+  info: Your blog info
+  favicon: /images/avatar.ico
   options:
-    showDarkMode: true # is show dark mode button
-    enableMultiLang: true # is show multi language button
+    showDarkMode: true
+    enableImgZooming: true
+    enableMultiLang: true
+    showMetaTags: true
 ```
 
-Modifying the default configuration. Then push it to your repository.
+4. Start the server:
 
-## ALL Configuration
+```bash
+hugo server -D
+```
 
-Following this [article](https://guangzhengli.com/blog/en/how-to-create-your-blog-for-free-by-hugo-ladder-in-30min/) to cofiguration.
+Open http://localhost:1313/ in your browser.
 
-Following this [article](https://guangzhengli.com/blog/en/how-to-integrate-umami-for-free-to-blog-site/) to configure the umami analytics
+## Usage
 
+### Math Formulas
 
-## Sponsor
+Add `math: true` to your page front matter:
 
-if you like this theme, you can sponsor me to buy a cup of coffee.
-https://guangzhengli.com/sponsors
+```yaml
+---
+title: "My Math Article"
+math: true
+---
+```
 
-## Special Thanks
+### Mermaid Diagrams
 
-* Hugo Ladder is inspired by [hugo-paperMod](https://github.com/adityatelange/hugo-PaperMod).
+Add `mermaid: true` to your page front matter:
+
+```yaml
+---
+title: "My Flowchart"
+mermaid: true
+---
+```
+
+Then use standard Mermaid syntax in code blocks:
+
+````
+```mermaid
+graph TD
+    A[Start] --> B[End]
+```
+````
+
+### Multi-language
+
+Configure languages in `config.yml`:
+
+```yaml
+languages:
+  en:
+    label: English
+    menu:
+      main:
+        - name: Blog
+          url: /blog
+          weight: 1
+  zh:
+    label: 中文
+    menu:
+      main:
+        - name: 文章
+          url: /blog
+          weight: 1
+```
+
+### Comment System
+
+Supports Giscus (recommended) and Utterances. Configure in `params.comments`:
+
+```yaml
+params:
+  comments:
+    giscus:
+      enable: true
+      repo: username/repo
+      repo_id: R_xxx
+      category: Announcements
+      category_id: DIC_xxx
+      mapping: pathname
+      lang: en
+```
+
+## Documentation
+
+See the [`docs`](docs/home.md) folder for detailed documentation:
+
+- [Quick Start](docs/quick-start.md)
+- [Configurations](docs/configurations.md)
+- [Multi Language](docs/multi-language.md)
+- [Comment System](docs/comment-system.md)
+- [Analytics](docs/analytics.md)
+
+## License
+
+[MIT](LICENSE)
+
+## Credits
+
+- Originally forked from [hugo-theme-ladder](https://github.com/guangzhengli/hugo-theme-ladder) by [guangzhengli](https://github.com/guangzhengli) — thanks for the beautiful design and great foundation to build upon.
+- Inspired by [hugo-PaperMod](https://github.com/adityatelange/hugo-PaperMod)
+- Font: [LXGW WenKai](https://github.com/lxgw/LxgwWenKai)
