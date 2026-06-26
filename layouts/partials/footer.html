@@ -29,39 +29,40 @@
 </script>
 
 <script>
-    document.querySelectorAll('pre > code').forEach((codeblock) => {
-        const container = codeblock.parentNode.parentNode;
+    document.querySelectorAll('.highlight').forEach((block) => {
+        const pre = block.querySelector('pre');
+        if (!pre) return;
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerHTML = '{{ i18n "copy" }}';
+        copybutton.textContent = '{{ i18n "copy" }}';
 
         function copyingDone() {
-            copybutton.innerHTML = '{{ i18n "copied" }}';
+            copybutton.textContent = '{{ i18n "copied" }}';
             setTimeout(() => {
-                copybutton.innerHTML = '{{ i18n "copy" }}';
+                copybutton.textContent = '{{ i18n "copy" }}';
             }, 2000);
         }
 
-        copybutton.addEventListener('click', (cb) => {
+        copybutton.addEventListener('click', () => {
+            const code = pre.querySelector('code');
+            const text = code ? code.textContent : pre.textContent;
             if ('clipboard' in navigator) {
-                navigator.clipboard.writeText(codeblock.textContent);
-                copyingDone();
+                navigator.clipboard.writeText(text).then(copyingDone);
                 return;
             }
-
             const range = document.createRange();
-            range.selectNodeContents(codeblock);
+            range.selectNodeContents(pre);
             const selection = window.getSelection();
             selection.removeAllRanges();
             selection.addRange(range);
             try {
                 document.execCommand('copy');
                 copyingDone();
-            } catch (e) { };
+            } catch (e) {}
             selection.removeRange(range);
         });
-        codeblock.parentNode.appendChild(copybutton);
+        block.appendChild(copybutton);
     });
 </script>
 

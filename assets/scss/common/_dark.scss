@@ -1,38 +1,68 @@
 @use "common/variables" as *;
 
-[data-dark-mode] body .navigation .navigation-list .navigation-dark .toggle-light {
-  display: block;
-  color: $body-color-dark;
-}
-
-[data-dark-mode] body .navigation .navigation-list .navigation-dark .toggle-light:hover {
-  color: $color-dark-yellow;
-}
-
-[data-dark-mode] body .navigation .navigation-list .navigation-dark .toggle-dark {
-  display: none;
-}
-
+// ====== Base ======
 [data-dark-mode] body {
   background: $body-bg-dark;
   color: $body-color-dark;
 }
 
 [data-dark-mode] body a {
-  color: $body-color-dark;
+  color: $dark-accent;
+  transition: color 0.2s ease;
 }
 
-[data-dark-mode] body a.text-body {
-  color: $body-color-dark;
+[data-dark-mode] body a:hover {
+  color: $dark-accent-hover;
 }
 
-[data-dark-mode] body .navigation-link:hover,
-[data-dark-mode] body .navigation-link:focus,
-[data-dark-mode] body .navigation-brand:hover,
-[data-dark-mode] body .navigation-brand:focus {
-  color: $body-color-dark;
+// ====== Navigation ======
+[data-dark-mode] .navigation {
+  a, span {
+    color: $body-color-dark;
+  }
+
+  .navigation-brand {
+    color: $body-color-dark !important;
+  }
+
+  .navigation-link:hover,
+  .navigation-brand:hover {
+    color: $dark-accent !important;
+  }
+
+  .navigation-list {
+    @media only screen and (max-width: 768px) {
+      background-color: $body-bg-dark;
+      border-top-color: $dark-border;
+      border-bottom-color: $dark-border;
+    }
+  }
+
+  .menu-button span {
+    @media only screen and (max-width: 768px) {
+      background: $body-color-dark;
+    }
+  }
+
+  .navigation-dark {
+    .toggle-light {
+      display: block;
+      color: $color-dark-yellow;
+    }
+    .toggle-light:hover {
+      color: $color-dark-yellow;
+    }
+    .toggle-dark {
+      display: none;
+    }
+  }
 }
 
+[data-dark-mode] body .language-item a:hover {
+  color: $dark-accent;
+}
+
+// ====== Headings ======
 [data-dark-mode] h1,
 [data-dark-mode] h2,
 [data-dark-mode] h3,
@@ -42,119 +72,51 @@
   color: $body-color-dark;
 
   .heading-link {
-    color: $body-color-dark;
+    color: $dark-muted;
   }
 }
 
-[data-dark-mode] code {
+// ====== Code ======
+[data-dark-mode] code:not(pre code) {
+  background-color: rgba(110, 118, 129, 0.15);
+  color: $dark-accent;
+  padding: 0.15rem 0.4rem;
+}
+
+[data-dark-mode] .highlight {
   background-color: $color-dark-code-bg;
-}
+  border: 1px solid $dark-border;
 
-[data-dark-mode] .highlight>pre,
-[data-dark-mode] .highlight>div {
-  background-color: $color-dark-code-bg !important;
-}
+  &::before {
+    color: $dark-muted;
+    background: rgba(255, 255, 255, 0.05);
+  }
 
-[data-dark-mode] pre {
-
-  code {
-    display: inline-block;
+  pre {
     background-color: $color-dark-code-bg;
-    color: inherit;
-  }
-}
-
-[data-dark-mode] blockquote {
-  border-left: 3px solid $body-color-dark !important;
-}
-
-[data-dark-mode] body .blog-card {
-  background: $body-bg-dark;
-}
-
-[data-dark-mode] body .card {
-  background: $gray-900;
-
-  p {
-    color: $gray-400;
-  }
-}
-
-[data-dark-mode] body .blog-toc {
-  a:hover {
-    color: $body-color-dark;
-  }
-}
-
-[data-dark-mode] .top-link {
-  background: $border-dark;
-}
-
-[data-dark-mode] .top-link svg {
-  color: $body-color-dark;
-}
-
-[data-dark-mode] .footer a:hover,
-[data-dark-mode] .top-link:hover {
-  background: $body-overlay-dark;
-}
-
-[data-dark-mode] .archive-count,
-[data-dark-mode] .archive-meta {
-  color: $gray-300;
-  font-size: 1.5rem;
-}
-
-
-[data-dark-mode] .blog-single .related-resources {
-  border-top: 1px solid $body-color-dark;
-}
-
-[data-dark-mode] body .language-item a:hover {
-  color: $body-color-dark;
-}
-
-[data-dark-mode] .blog-content {
-  a {
-    box-shadow: 0 0;
-    text-decoration: none;
-    color: $color-dark-blue;
-  }
-}
-
-[data-dark-mode] .home .info .intro {
-  a {
-    box-shadow: 0 0;
-    text-decoration: none;
-    color: $color-dark-blue;
-  }
-}
-
-[data-dark-mode] .navigation .navigation-list {
-
-  @media only screen and (max-width: 768px) {
-    background-color: $body-bg-dark;
-    border-top: solid 2px $gray-600;
-    border-bottom: solid 2px $gray-600;
   }
 
-  .menu-separator span {
-    color: $gray-200;
+  .lnt, .ln {
+    color: $dark-muted;
+    border-right-color: $dark-border;
   }
-}
 
-[data-dark-mode] .navigation .menu-button {
-  @media only screen and (max-width: 768px) {
+  .copy-code {
+    background: rgba(122, 162, 247, 0.8);
 
-    span {
-      background: $body-color-dark;
+    &:hover {
+      background: rgba(122, 162, 247, 1);
     }
   }
 }
 
-[data-dark-mode] .tags .tags-list a {
-  background: $gray-800;
-  color: $body-color-dark;
+// ====== Blockquote ======
+[data-dark-mode] blockquote {
+  border-left: 3px solid $dark-accent !important;
+  color: $dark-muted;
+  background: rgba(122, 162, 247, 0.05);
+  padding: 1rem 2rem;
+  margin: 1.5rem 0;
 }
 
 // ====== Table ======
@@ -164,33 +126,113 @@
 
 [data-dark-mode] table th,
 [data-dark-mode] table:not(.highlighttable, .highlight table, .gist .highlight) td {
-  border-bottom-color: $gray-600;
+  border-bottom-color: $dark-border;
 }
 
 [data-dark-mode] table th {
-  border-bottom-color: $gray-400;
+  border-bottom-color: $dark-muted;
+  color: $body-color-dark;
 }
 
-// ====== Blog card ======
+[data-dark-mode] table tr:hover {
+  background: rgba(122, 162, 247, 0.05);
+}
+
+// ====== Home ======
+[data-dark-mode] .home {
+  .info .intro {
+    a {
+      color: $dark-accent;
+      box-shadow: none;
+    }
+  }
+
+  .featured .featured-single {
+    border-top-color: $dark-border;
+
+    h4 a {
+      color: $body-color-dark;
+    }
+
+    h4 a:hover {
+      color: $dark-accent;
+    }
+
+    p {
+      color: $dark-muted;
+    }
+  }
+}
+
+// ====== Blog List ======
 [data-dark-mode] body .blog-card {
-  background: $body-bg-dark;
-  border-bottom-color: $gray-600;
+  background: $dark-card-bg;
+  border-bottom-color: $dark-border;
 
   h3 a {
     color: $body-color-dark;
   }
 
+  h3 a:hover {
+    color: $dark-accent;
+  }
+
   p small {
-    color: $gray-400;
+    color: $dark-muted;
   }
 }
 
-// ====== Blog content links ======
+// ====== Blog Single ======
+[data-dark-mode] .blog-single {
+  .blog-title h1 {
+    color: $body-color-dark;
+  }
+
+  p small {
+    color: $dark-muted;
+
+    a {
+      color: $dark-muted;
+    }
+
+    a:hover {
+      color: $dark-accent;
+    }
+  }
+
+  .related-resources {
+    border-top: 1px solid $dark-border;
+
+    h3 {
+      color: $body-color-dark;
+    }
+
+    ul li {
+      border-bottom-color: $dark-border;
+
+      a {
+        color: $body-color-dark;
+      }
+
+      a:hover {
+        color: $dark-accent;
+      }
+    }
+  }
+}
+
+// ====== Blog Content ======
 [data-dark-mode] .blog-content {
   a {
-    box-shadow: 0 0;
+    color: $dark-accent;
+    box-shadow: none;
     text-decoration: none;
-    color: $color-dark-blue;
+    border-bottom: 1px solid $dark-accent;
+  }
+
+  a:hover {
+    color: $dark-accent-hover;
+    border-bottom-color: $dark-accent-hover;
   }
 }
 
@@ -202,6 +244,7 @@
 
   a:hover {
     color: $body-color-dark;
+    text-decoration: underline;
   }
 
   .toc-container summary {
@@ -209,114 +252,26 @@
   }
 
   .toc-container summary:hover {
-    color: $color-dark-blue;
+    color: $body-color-dark;
+    text-decoration: underline;
   }
 
   li:not(:first-child) {
-    border-top-color: $gray-600;
+    border-top-color: $dark-border;
   }
 }
 
-// ====== Related resources ======
-[data-dark-mode] .blog-single .related-resources {
-  border-top: 1px solid $body-color-dark;
-
-  h3 {
-    color: $body-color-dark;
-  }
-
-  ul li {
-    border-bottom-color: $gray-600;
-
-    a {
-      color: $body-color-dark;
-    }
-
-    a:hover {
-      color: $color-dark-blue;
-    }
-  }
-}
-
-// ====== Code block with line numbers ======
-[data-dark-mode] .highlight {
-  .lnt, .ln {
-    color: $gray-500;
-    border-right-color: $gray-600;
-  }
-}
-
-// ====== Copy button ======
-[data-dark-mode] .copy-code {
-  background: $color-dark-pink-300;
-  color: $body-bg-dark;
-}
-
-// ====== Reading progress bar ======
-[data-dark-mode] .reading-progress {
-  background: $color-dark-blue;
-}
-
-// ====== Top link ======
-[data-dark-mode] .top-link {
-  background: $gray-800;
-}
-
-[data-dark-mode] .top-link svg {
+// ====== Tags ======
+[data-dark-mode] .tags .tags-list a {
+  background: $dark-card-bg;
   color: $body-color-dark;
+  border: 1px solid $dark-border;
 }
 
-[data-dark-mode] .top-link:hover {
-  background: $body-overlay-dark;
-}
-
-// ====== Footer ======
-[data-dark-mode] .footer {
-  color: $gray-400;
-
-  a {
-    color: $body-color-dark;
-  }
-
-  a:hover {
-    color: $color-dark-blue;
-  }
-}
-
-// ====== Featured posts ======
-[data-dark-mode] .home .featured .featured-single {
-  border-top-color: $gray-600;
-
-  h4 a {
-    color: $body-color-dark;
-  }
-
-  p {
-    color: $gray-400;
-  }
-}
-
-// ====== Home intro ======
-[data-dark-mode] .home .info .intro {
-  a {
-    box-shadow: 0 0;
-    text-decoration: none;
-    color: $color-dark-blue;
-  }
-}
-
-// ====== Card ======
-[data-dark-mode] .card-wrapper .card {
-  background: $gray-900;
-  box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.4);
-
-  &:hover {
-    box-shadow: 0 6px 12px -4px rgba(0, 0, 0, 0.5);
-  }
-
-  p {
-    color: $gray-400;
-  }
+[data-dark-mode] .tags .tags-list a:hover {
+  background: $dark-card-hover;
+  border-color: $dark-accent;
+  color: $dark-accent;
 }
 
 // ====== Archive ======
@@ -324,13 +279,13 @@
   color: $body-color-dark;
 }
 
-[data-dark-mode] .archive-entry:hover {
-  color: $color-dark-blue;
+[data-dark-mode] .archive-entry a:hover {
+  color: $dark-accent;
 }
 
 [data-dark-mode] .archive-count,
 [data-dark-mode] .archive-meta {
-  color: $gray-400;
+  color: $dark-muted;
   font-size: 1.5rem;
 }
 
@@ -340,54 +295,60 @@
 }
 
 [data-dark-mode] .paginator a:hover {
-  color: $color-dark-blue;
+  color: $dark-accent;
 }
 
-// ====== Blockquote ======
-[data-dark-mode] blockquote {
-  border-left: 3px solid $gray-500 !important;
-  color: $gray-400;
+// ====== Card ======
+[data-dark-mode] .card-wrapper .card {
+  background: $dark-card-bg;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid $dark-border;
+
+  &:hover {
+    background: $dark-card-hover;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    border-color: $dark-accent;
+  }
+
+  p {
+    color: $dark-muted;
+  }
+}
+
+// ====== Footer ======
+[data-dark-mode] .footer {
+  color: $dark-muted;
+
+  a {
+    color: $dark-muted;
+  }
+
+  a:hover {
+    color: $dark-accent;
+  }
+}
+
+// ====== Top Link ======
+[data-dark-mode] .top-link {
+  background: $dark-card-bg;
+  border: 1px solid $dark-border;
+}
+
+[data-dark-mode] .top-link svg {
+  color: $body-color-dark;
+}
+
+[data-dark-mode] .top-link:hover {
+  background: $dark-card-hover;
+  border-color: $dark-accent;
+}
+
+// ====== Reading Progress ======
+[data-dark-mode] .reading-progress {
+  background: $dark-accent;
 }
 
 // ====== Mermaid ======
 [data-dark-mode] .mermaid {
-  // Mermaid will use its own dark theme via JS
-}
-
-// ====== Blog single meta ======
-[data-dark-mode] .blog-single .blog-title h1 {
-  color: $body-color-dark;
-}
-
-[data-dark-mode] .blog-single p small {
-  color: $gray-400;
-
-  a {
-    color: $gray-400;
-  }
-}
-
-// ====== Navigation ======
-[data-dark-mode] .navigation .navigation-list {
-  @media only screen and (max-width: 768px) {
-    background-color: $body-bg-dark;
-    border-top-color: $gray-600;
-    border-bottom-color: $gray-600;
-  }
-
-  .menu-separator span {
-    color: $gray-500;
-  }
-}
-
-[data-dark-mode] .navigation .menu-button {
-  @media only screen and (max-width: 768px) {
-    span {
-      background: $body-color-dark;
-    }
-  }
-}
-
-[data-dark-mode] body .language-item a:hover {
-  color: $body-color-dark;
+  // Mermaid uses its own dark theme via JS
 }

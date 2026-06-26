@@ -38,28 +38,37 @@ $lighter-alt-bg-color-dark: #4f4f4f;
 $link-color-dark: #42a5f5;
 
 
-$body-bg-dark: #181a1b;
-$body-overlay-dark: color.adjust($body-bg-dark, $lightness: -2.5%);
+$body-bg-dark: #1a1b1e;
+$body-overlay-dark: #131416;
 
-$border-dark: $gray-800;
-$body-color-dark: $gray-300;
+$border-dark: #2d2f33;
+$body-color-dark: #c9d1d9;
 $dots-dark: color.adjust($body-color-dark, $lightness: -50%);
 
-$color-dark-cyan: #84ebd9;
-$color-dark-blue: #6ab0e5;
-$color-dark-blue-200: #1565c0;
-$color-dark-purple: #d35af7;
-$color-dark-yellow: #fdec6d;
-$color-dark-pink: #ed6d91;
-$color-dark-pink-200: #dd556a;
-$color-dark-pink-300: #e952a6;
-$color-dark-red: #eb4344;
-$color-dark-orange: #f1964f;
-$color-dark-code-bg: #202020;
+$color-dark-cyan: #7ee8d0;
+$color-dark-blue: #7aa2f7;
+$color-dark-blue-200: #3d59a1;
+$color-dark-purple: #bb9af7;
+$color-dark-yellow: #e0af68;
+$color-dark-pink: #f7768e;
+$color-dark-pink-200: #db4b6b;
+$color-dark-pink-300: #ff9e64;
+$color-dark-red: #f7768e;
+$color-dark-orange: #ff9e64;
+$color-dark-code-bg: #161b22;
+
+// Secondary dark colors
+$dark-card-bg: #242529;
+$dark-card-hover: #2a2b30;
+$dark-border: #2d2f33;
+$dark-muted: #8b949e;
+$dark-accent: #7aa2f7;
+$dark-accent-hover: #9db9ff;
+$dark-green: #9ece6a;
 
 // Ice dark theme colors
-$color-dark-line: #1f434c;
-$color-dark-card-bg: #10262b;
+$color-dark-line: #1f3a40;
+$color-dark-card-bg: #142a2e;
 
 
 // Fonts

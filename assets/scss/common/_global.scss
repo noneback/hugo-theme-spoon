@@ -143,66 +143,122 @@ small {
 }
 
 
-.highlight>div,
-.highlight>pre {
-  margin: 2rem 0 2rem;
-  padding: 2rem;
-  border-radius: 1rem;
-  background-color: $code-bg-color-dark !important;
-}
+// ====== Code Blocks ======
 
-pre {
-  display: block;
-  font-family: $code-font-family;
-  font-size: 1.6rem;
-  font-weight: 400;
-  line-height: 2.6rem;
-  overflow-x: auto;
-  margin: 0;
+// Highlight container
+.highlight {
   position: relative;
+  margin: 2rem 0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  max-width: 100%;
 
-  code {
-    display: inline-block;
-    background-color: inherit;
-    color: inherit;
+  // Language label
+  &::before {
+    content: attr(data-lang);
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.3rem 0.8rem;
+    font-size: 1.1rem;
+    font-family: $code-font-family;
+    color: #8b949e;
+    background: rgba(0, 0, 0, 0.15);
+    border-bottom-left-radius: 0.5rem;
+    z-index: 2;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
+  pre {
+    margin: 0;
+    padding: 1.5rem 2rem;
+    overflow-x: auto;
+    font-family: $code-font-family;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    tab-size: 4;
+    border-radius: 0.75rem;
+    background-color: $code-bg-color-dark;
+
+    code {
+      display: block;
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      color: #c9d1d9;
+      font-size: inherit;
+      line-height: inherit;
+      white-space: pre;
+      word-break: normal;
+      word-wrap: normal;
+    }
+  }
+
+  // Copy button
   .copy-code {
-    display: none;
-    padding: 1rem;
-    position:absolute;
-    right:0;
-    top: 1rem;
-    margin-right: 1rem;
-    color: $bg-color;
-    background: $code-copy-button;
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 1.1rem;
+    font-family: $font-family;
+    color: #fff;
+    background: rgba(233, 82, 166, 0.85);
+    border: none;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 3;
     user-select: none;
-    border: 0;
-    border-radius: 0.5rem;
+
+    &:hover {
+      background: rgba(233, 82, 166, 1);
+    }
+  }
+
+  &:hover .copy-code {
+    opacity: 1;
   }
 }
 
-.copy-code:hover,
-.copy-code:focus,
-.copy-code:active {
-  background: color.adjust($code-copy-button, $lightness: -5%);
-  cursor: pointer;
+// Hugo table-based highlight (lineNos: true)
+.highlight table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+
+  td {
+    padding: 0;
+    border: none;
+    vertical-align: top;
+  }
+
+  .lnt, .ln {
+    padding: 0 1.2rem 0 0;
+    margin-right: 1rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    user-select: none;
+    white-space: nowrap;
+    width: 1%;
+    color: #6e7681;
+  }
+
+  pre {
+    padding: 1.5rem 2rem;
+  }
 }
 
-
-div.highlight:hover .copy-code,
-pre:hover .copy-code {
-  display: block;
-}
-
-code {
+// ====== Inline Code ======
+code:not(pre code) {
   font-family: $code-font-family;
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 400;
   background-color: $font-highlight-bg-color;
   color: $font-highlight-color;
-  border-radius: 0.6rem;
-  padding: 0.3rem 0.6rem;
+  border-radius: 0.35rem;
+  padding: 0.15rem 0.4rem;
 }
 
 blockquote {

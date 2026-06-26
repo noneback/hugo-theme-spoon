@@ -1,32 +1,179 @@
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Convert Hugo's code blocks to Mermaid format
-        document.querySelectorAll('code.language-mermaid').forEach(function(el) {
-            var pre = el.parentElement;
-            var div = document.createElement('div');
-            div.className = 'mermaid';
-            div.textContent = el.textContent;
-            pre.parentNode.replaceChild(div, pre);
-        });
-        
+    function initMermaid() {
+        // Detect dark mode
+        var isDark = document.documentElement.hasAttribute('data-dark-mode') ||
+                     document.documentElement.hasAttribute('icy-dark-mode');
+
+        // Light theme: soft pastels, high contrast text
+        var lightTheme = {
+            fontFamily: '"LXGW WenKai", sans-serif',
+            fontSize: '14px',
+            primaryColor: '#e3f2fd',
+            primaryTextColor: '#1a1a2e',
+            primaryBorderColor: '#90caf9',
+            secondaryColor: '#e8f5e9',
+            secondaryTextColor: '#1a1a2e',
+            secondaryBorderColor: '#a5d6a7',
+            tertiaryColor: '#fff3e0',
+            tertiaryTextColor: '#1a1a2e',
+            tertiaryBorderColor: '#ffcc80',
+            lineColor: '#546e7a',
+            arrowheadColor: '#546e7a',
+            background: '#ffffff',
+            mainBkg: '#e3f2fd',
+            secondBkg: '#e8f5e9',
+            thirdBkg: '#fff3e0',
+            nodeBorder: '#90caf9',
+            clusterBkg: '#f5f5f5',
+            clusterBorder: '#bdbdbd',
+            defaultRenderer: 'elk',
+            textColor: '#212121',
+            edgeLabelBackground: '#ffffff',
+            classText: '#212121',
+            fillType0: '#e3f2fd',
+            fillType1: '#e8f5e9',
+            fillType2: '#fff3e0',
+            strokeColor0: '#90caf9',
+            strokeColor1: '#a5d6a7',
+            strokeColor2: '#ffcc80'
+        };
+
+        // Dark theme: teal accent, deep background
+        var darkTheme = {
+            fontFamily: '"LXGW WenKai", sans-serif',
+            fontSize: '14px',
+            primaryColor: '#1a3a40',
+            primaryTextColor: '#e0f0ed',
+            primaryBorderColor: '#4db6ac',
+            secondaryColor: '#1e3328',
+            secondaryTextColor: '#d0ecd8',
+            secondaryBorderColor: '#66bb6a',
+            tertiaryColor: '#2e2a1a',
+            tertiaryTextColor: '#f0e8c8',
+            tertiaryBorderColor: '#c8a84e',
+            lineColor: '#84ebd9',
+            arrowheadColor: '#84ebd9',
+            background: '#181a1b',
+            mainBkg: '#1a3a40',
+            secondBkg: '#1e3328',
+            thirdBkg: '#2e2a1a',
+            nodeBorder: '#4db6ac',
+            clusterBkg: '#1c2c2e',
+            clusterBorder: '#2e5c56',
+            defaultRenderer: 'elk',
+            textColor: '#dadada',
+            edgeLabelBackground: '#181a1b',
+            classText: '#dadada',
+            fillType0: '#1a3a40',
+            fillType1: '#1e3328',
+            fillType2: '#2e2a1a',
+            strokeColor0: '#4db6ac',
+            strokeColor1: '#66bb6a',
+            strokeColor2: '#c8a84e'
+        };
+
+        var themeVars = isDark ? darkTheme : lightTheme;
+
         mermaid.initialize({
-            startOnLoad: true,
-            theme: 'default',
+            startOnLoad: false,
+            theme: isDark ? 'dark' : 'base',
             securityLevel: 'loose',
+            logLevel: 'fatal',
             flowchart: {
                 useMaxWidth: true,
-                htmlLabels: true
+                htmlLabels: true,
+                curve: 'basis',
+                padding: 20,
+                nodeSpacing: 50,
+                rankSpacing: 50,
+                diagramPaddingX: 20,
+                diagramPaddingY: 20
             },
             sequence: {
-                useMaxWidth: true
+                useMaxWidth: true,
+                diagramMarginX: 50,
+                diagramMarginY: 10,
+                actorMargin: 50,
+                width: 150,
+                height: 65,
+                boxMargin: 10,
+                actorBorder: themeVars.primaryBorderColor,
+                actorBkg: themeVars.primaryColor,
+                actorTextColor: themeVars.primaryTextColor,
+                actorLineColor: themeVars.lineColor,
+                signalColor: themeVars.lineColor,
+                signalTextColor: themeVars.textColor,
+                labelBoxBkgColor: themeVars.secondaryColor,
+                labelBoxBorderColor: themeVars.secondaryBorderColor,
+                labelTextColor: themeVars.textColor,
+                noteBkgColor: themeVars.tertiaryColor,
+                noteBorderColor: themeVars.tertiaryBorderColor,
+                noteTextColor: themeVars.tertiaryTextColor
+            },
+            themeVariables: themeVars
+        });
+
+        // Reset and re-render all mermaid diagrams
+        document.querySelectorAll('.mermaid').forEach(function(el) {
+            el.removeAttribute('data-processed');
+        });
+        mermaid.run({
+            querySelector: '.mermaid'
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Convert Hugo's code blocks to Mermaid format and save original text
+        document.querySelectorAll('code.language-mermaid').forEach(function(el) {
+            var pre = el.parentElement;
+            var container = pre.parentElement;
+            var div = document.createElement('div');
+            div.className = 'mermaid';
+            var text = el.textContent;
+            div.textContent = text;
+            div.dataset.mermaidSource = text;
+            if (container && container.classList.contains('highlight')) {
+                container.parentNode.replaceChild(div, container);
+            } else {
+                pre.parentNode.replaceChild(div, pre);
             }
+        });
+
+        initMermaid();
+
+        // Watch for dark mode toggle
+        var observer = new MutationObserver(function() {
+            // Restore original text before re-rendering
+            document.querySelectorAll('.mermaid').forEach(function(el) {
+                if (el.dataset.mermaidSource) {
+                    el.textContent = el.dataset.mermaidSource;
+                    el.removeAttribute('data-processed');
+                }
+            });
+            initMermaid();
+        });
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ['data-dark-mode', 'icy-dark-mode']
         });
     });
 </script>
 <style>
     .mermaid {
         text-align: center;
-        margin: 1.5rem 0;
+        margin: 2rem 0;
+        padding: 1.5rem;
+        background: transparent;
+        border-radius: 0.75rem;
+    }
+    .mermaid svg {
+        max-width: 100%;
+        height: auto;
+    }
+    [data-dark-mode] .mermaid,
+    [icy-dark-mode] .mermaid {
+        background: rgba(255, 255, 255, 0.015);
+        border: 1px solid rgba(132, 235, 217, 0.1);
     }
 </style>

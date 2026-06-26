@@ -1,0 +1,57 @@
+// Hugo Chroma Syntax Highlighting - GitHub Dark Theme
+// Classes: https://gohugo.io/content-management/syntax-highlighting/#list-of-chroma-highlighting-styles
+
+.chroma {
+  color: #c9d1d9;
+
+  // Background
+  .ln, .lnt { color: #6e7681; }
+
+  // Keyword
+  .k, .kc, .kd, .kn, .kp, .kr, .kt { color: #ff7b72; }
+
+  // Name (variables, functions, classes)
+  .n, .na { color: #c9d1d9; }
+  .nb { color: #ffa657; }
+  .nc, .nn { color: #d2a8ff; }
+  .nf, .nx { color: #d2a8ff; }
+  .nd { color: #79c0ff; }
+  .ni { color: #c9d1d9; }
+  .ne { color: #ffa657; }
+  .nl { color: #79c0ff; }
+  .no { color: #79c0ff; }
+  .nt { color: #7ee787; }
+  .nv, .vc, .vg, .vi { color: #ffa657; }
+
+  // Literal
+  .l, .ld { color: #a5d6ff; }
+  .m, .mb, .mf, .mh, .mi, .il, .mo { color: #79c0ff; }
+
+  // String
+  .s, .sa, .sb, .sc, .dl, .sd, .s2, .se, .sh, .si, .sx, .sr, .s1, .ss { color: #a5d6ff; }
+
+  // Operator
+  .o, .ow { color: #ff7b72; }
+
+  // Punctuation
+  .p { color: #c9d1d9; }
+
+  // Comment
+  .c, .ch, .cm, .c1, .cs, .cp, .cpf { color: #8b949e; font-style: italic; }
+
+  // Generic
+  .g, .gd { color: #ffa198; }
+  .ge { color: #c9d1d9; font-style: italic; }
+  .gr { color: #ffa198; }
+  .gh { color: #79c0ff; font-weight: bold; }
+  .gi { color: #56d364; }
+  .go { color: #8b949e; }
+  .gp { color: #8b949e; }
+  .gs { color: #c9d1d9; font-weight: bold; }
+  .gu { color: #79c0ff; }
+  .gt { color: #ff7b72; }
+
+  // Other
+  .w { color: #c9d1d9; }
+  .err { color: #ffa198; }
+}
