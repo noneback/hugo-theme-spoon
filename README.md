@@ -31,7 +31,7 @@
 | Image Loading | Eager | **Lazy loading** |
 | Related Posts | - | **Auto recommendations** |
 | i18n | Partial | **Full i18n with more keys** |
-| Code Highlight | highlight.js | **highlight.js + line numbers** |
+| Code Highlight | highlight.js | **Hugo Chroma + GitHub Dark theme** |
 
 ## Features
 
@@ -41,10 +41,10 @@
 - **Multi-language** — Built-in i18n support (English, Chinese, Ukrainian, Portuguese)
 - **Responsive** — Mobile-first design, works on all devices
 - **Dart Sass** — Modern SCSS toolchain, no deprecated libsass dependency
-- **Code Highlight** — Syntax highlighting with copy button and line numbers
+- **Code Highlight** — Hugo Chroma with GitHub Dark style, copy button, no external JS dependency
 - **Table of Contents** — Collapsible TOC for long articles
 - **KaTeX Math** — Beautiful math formula rendering (opt-in per page)
-- **Mermaid Diagrams** — Flowcharts and diagrams rendering (opt-in per page)
+- **Mermaid Diagrams** — Flowcharts with auto light/dark theme switching
 - **Reading Progress** — Visual progress bar on article pages
 - **Lazy Loading** — Automatic image lazy loading for better performance
 - **Related Posts** — Automatic related article recommendations
