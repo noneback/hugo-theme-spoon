@@ -10,7 +10,7 @@
               {{ with .Params.description }}
                 <p>{{ . }}</p>
               {{ else }}
-                {{ .Summary }}
+                <p>{{ .Summary | plainify | truncate 200 }}</p>
               {{ end }}
           </div>
         </article>
