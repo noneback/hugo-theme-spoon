@@ -7,7 +7,11 @@
     <article class="featured-single">
         <h4><a href="{{ .RelPermalink }}">{{ .Params.title }}</a></h4>
         {{ partial "blog/meta.html" . }}
-        {{ .Summary }}
+        {{ with .Params.description }}
+          <p>{{ . }}</p>
+        {{ else }}
+          {{ .Summary }}
+        {{ end }}
     </article>
   {{ end -}}
 </div>

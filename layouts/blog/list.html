@@ -7,7 +7,11 @@
           <div class="blog-card">
               <h3><a href="{{ .RelPermalink }}">{{ .Params.title }}</a></h3>
               {{ partial "blog/meta.html" . }}
-              {{ .Summary }}
+              {{ with .Params.description }}
+                <p>{{ . }}</p>
+              {{ else }}
+                {{ .Summary }}
+              {{ end }}
           </div>
         </article>
       {{ end -}}

@@ -8,6 +8,7 @@ homepage: https://hugo-ladder.pages.dev
 defaultContentLanguage: en
 enableRobotsTXT: true
 hasCJKLanguage: true
+summaryLength: 30
 ignoreLogs:
 - warning-goldmark-raw-html
 copyright: 2023 GuangzhengLi All rights reserved
