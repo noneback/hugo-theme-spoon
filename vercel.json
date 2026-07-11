@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "hugo",
-  "buildCommand": "cd exampleSite && hugo --themesDir ../.. --gc --minify",
+  "buildCommand": "cd exampleSite && mkdir -p themes && ln -s ../.. themes/hugo-theme-spoon && hugo --gc --minify",
   "outputDirectory": "exampleSite/public",
   "env": {
     "HUGO_VERSION": "0.163.3"

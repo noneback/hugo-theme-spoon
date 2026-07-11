@@ -7,3 +7,4 @@ exampleSite/resources/*
 exampleSite/public/
 exampleSite/themes/
 .bin/
+.vercel
