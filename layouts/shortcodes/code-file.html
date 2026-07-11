@@ -1,0 +1,51 @@
+{{- $path := .Get "path" -}}
+{{- if not $path }}
+  {{- errorf "code-file shortcode requires a path: %s" .Position -}}
+{{- end -}}
+{{- if or (strings.HasPrefix $path "/") (strings.Contains $path "../") (eq $path "..") }}
+  {{- errorf "code-file shortcode path must stay inside the site root: %q at %s" $path .Position -}}
+{{- end -}}
+
+{{- $source := readFile $path -}}
+{{- $lines := split $source "\n" -}}
+{{- $start := 1 -}}
+{{- with .Get "start" }}{{ $start = int . }}{{ end -}}
+{{- $end := len $lines -}}
+{{- with .Get "end" }}{{ $end = int . }}{{ end -}}
+{{- if or (lt $start 1) (lt $end $start) (gt $end (len $lines)) }}
+  {{- errorf "code-file shortcode range %d-%d is outside %q (%d lines): %s" $start $end $path (len $lines) .Position -}}
+{{- end -}}
+
+{{- $language := .Get "lang" | default (strings.TrimPrefix "." (path.Ext $path)) | default "text" -}}
+{{- $title := .Get "title" | default $path -}}
+{{- $length := add (sub $end $start) 1 -}}
+{{- $snippet := delimit (first $length (after (sub $start 1) $lines)) "\n" -}}
+{{- $options := dict "lineNos" "table" "lineNoStart" $start -}}
+{{- with .Get "highlight" }}
+  {{- $focusedLines := slice -}}
+  {{- range split . "," }}
+    {{- $range := split (strings.TrimSpace .) "-" -}}
+    {{- $from := int (index $range 0) -}}
+    {{- $to := $from -}}
+    {{- if eq (len $range) 2 }}{{ $to = int (index $range 1) }}{{ end -}}
+    {{- if or (lt $from $start) (gt $to $end) (lt $to $from) }}
+      {{- errorf "code-file shortcode highlight %q is outside selected range %d-%d: %s" . $start $end $.Position -}}
+    {{- end -}}
+    {{- range seq $from $to }}
+      {{- $focusedLines = $focusedLines | append (string (add (sub . $start) 1)) -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $options = merge $options (dict "hl_Lines" (delimit $focusedLines " ")) -}}
+{{- end -}}
+<div class="code-block" data-language="{{ $language }}">
+  <div class="code-block-header">
+    <div class="code-block-meta">
+      <span class="code-block-title" title="{{ $title }}">{{ $title }}</span>
+      <span class="code-block-language">{{ $language }}</span>
+    </div>
+    <div class="code-block-actions">
+      <button class="copy-code" type="button" aria-label="{{ i18n "copy" }}">{{ i18n "copy" }}</button>
+    </div>
+  </div>
+  {{ transform.Highlight $snippet $language $options }}
+</div>

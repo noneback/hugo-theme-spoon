@@ -21,7 +21,7 @@ The [umami](https://umami.is/) service is hosted with [vercel](https://vercel.co
 3. From the dashboard page click Import Project then specify the URL to your fork of the project on GitHub.
 4. Add the required environment variables to your Vercel project. These values are defined in the Configure umami step from Install.
    1. DATABASE_URL: Connection string for your database. This is the only required variable.
-   2. TRACKER_SCRIPT_NAME: Allows you to assign a custom name to the tracker script different from the default `umami`. This is to help you avoid some ad-blockers. I used `hugo-ladder` on this project.
+   2. TRACKER_SCRIPT_NAME: Allows you to assign a custom name to the tracker script different from the default `umami`.
 
 5. Enter `yarn build && yarn update-db` to the `BUILD COMMAND`, which will migrate the tables of umami to database automatically. 
 6. Deploy and visit your application at <deploy-id>.vercel.app.
@@ -37,7 +37,7 @@ After deploying umami in vercel you will get a  `<deploy-id>.vercel.app`  addres
 
 You can change the default password and `Add webiste`, enter the `Name` and `Domain`, and click  `enable share URL` so that anyone can access the dashboard.
 
-Then you can get  `data-website-id` and  `src` values by click `Get tracking code`，enter the value to the `hugo-ladder` configuration  `params.analytics.umami.website_id` ,  `params.analytics.umami.url`. 
+Then copy the `data-website-id` and `src` values from the tracking code into `params.analytics.umami.website_id` and `params.analytics.umami.url` in the Spoon configuration.
 
 ![OZcU7U](https://cdn.jsdelivr.net/gh/guangzhengli/PicURL@master/uPic/OZcU7U.png)
 

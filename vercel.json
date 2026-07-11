@@ -1,6 +1,6 @@
 {
   "build": {
-    "command": "cd exampleSite && rm -rf themes/hugo-theme-spoon && ln -s ../.. hugo-theme-spoon && hugo --gc --minify",
+    "command": "cd exampleSite && hugo --themesDir ../.. --gc --minify",
     "output": "exampleSite/public"
   },
   "env": {

@@ -6,25 +6,25 @@
     {{ if .Site.Params.sponsors.buymeacoffee.enable }}
     <div class="sponsors-buymeacoffee-icon">
         <a href="{{.Site.Params.sponsors.buymeacoffee.url}}"><img
-            src="{{.Site.Params.sponsors.buymeacoffee.buttom_api}}" /></a>
+            src="{{.Site.Params.sponsors.buymeacoffee.buttom_api}}" alt="Buy me a coffee" loading="lazy" decoding="async" /></a>
     </div>
 
     <div class="sponsors-buymeacoffee-qr">
-        <a><img src="{{.Site.Params.sponsors.buymeacoffee.qr}}" /></a>
+        <a><img src="{{.Site.Params.sponsors.buymeacoffee.qr}}" alt="Buy me a coffee QR code" loading="lazy" decoding="async" /></a>
     </div>
     <div class="sponosrs-text">Buy me a coffee</div>
     {{ end }}
 
     {{ if .Site.Params.sponsors.wechat.enable }}
     <div class="sponsors-wechat-qr">
-        <a><img src="{{.Site.Params.sponsors.wechat.qr}}"></a>
+        <a><img src="{{.Site.Params.sponsors.wechat.qr}}" alt="微信支付二维码" loading="lazy" decoding="async"></a>
     </div>
     <div class="sponosrs-text">微信支付</div>
     {{ end }}
 
     {{ if .Site.Params.sponsors.alipay.enable }}
     <div class="sponsors-alipay-qr">
-        <a><img src="{{.Site.Params.sponsors.alipay.qr}}"></a>
+        <a><img src="{{.Site.Params.sponsors.alipay.qr}}" alt="支付宝二维码" loading="lazy" decoding="async"></a>
     </div>
     <div class="sponosrs-text">支付宝</div>
     {{ end }}

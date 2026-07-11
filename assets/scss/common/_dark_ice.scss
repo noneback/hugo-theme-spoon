@@ -52,6 +52,39 @@
   background-color: $color-dark-code-bg !important;
 }
 
+[icy-dark-mode] .code-block {
+  background: $color-dark-code-bg;
+  border-color: $color-dark-line;
+
+  .code-block-header {
+    color: $body-color-dark;
+    background: rgba(255, 255, 255, 0.04);
+    border-bottom-color: $color-dark-line;
+  }
+
+  .code-block-title { color: #e6edf3; }
+  .code-block-language { color: $color-dark-cyan; }
+
+  .copy-code {
+    color: $body-color-dark;
+    background: rgba(126, 232, 208, 0.14);
+    border-color: rgba(126, 232, 208, 0.35);
+
+    &:hover { background: rgba(126, 232, 208, 0.26); }
+  }
+
+  .highlight {
+    background: transparent;
+    border: 0;
+
+    pre,
+    pre code { background: $color-dark-code-bg !important; }
+  }
+
+  .chroma .hl { background: rgba(126, 232, 208, 0.16); }
+  .chroma .line.hl { border-left-color: $color-dark-cyan; }
+}
+
 [icy-dark-mode] pre {
 
   code {

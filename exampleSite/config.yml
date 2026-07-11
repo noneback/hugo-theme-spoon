@@ -40,6 +40,12 @@ params:
     enableImgZooming: true
     enableMultiLang: true
     showMetaTags: true
+  article:
+    toc: true
+    related: true
+    comments: true
+    readingProgress: true
+    imageZoom: true
   darkModeTheme: data-dark-mode
   sponsors:
     title: Sponsors
@@ -57,17 +63,17 @@ params:
       qr: https://storage.guangzhengli.com/images/weixin_sponsors.jpeg
   comments:
     giscus:
-      enable: true
-      repo: guangzhengli/hugo-ladder-exampleSite
-      repo_id: R_kgDOHyVOjg
+      enable: false
+      repo: username/repository
+      repo_id: R_xxx
       category: Announcements
-      category_id: DIC_kwDOHyVOjs4CQsH7
+      category_id: DIC_xxx
       mapping: pathname
       position: top
       lang: en
     utteranc:
       enable: false
-      repo: guangzhengli/blog-comments
+      repo: username/repository
       issueTerm: pathname
   analytics:
     google:
@@ -75,7 +81,7 @@ params:
     umami:
       enable: false
       website_id: 24349452-bff6-4e96-93bf-6c764e191b26
-      url: https://umami-ochre-nu.vercel.app/hugo-ladder.js
+      url: https://analytics.example.com/script.js
   guestbook:
     title: Guestbook
     description: Leave a comment below. It could be anything – appreciation, information,
@@ -109,12 +115,13 @@ languages:
         weight: 6
   zh:
     label: 中文
-    author: Ladder 主题
-    authorDescription: 一个美观，快速并且专注于阅读的主题
-    info: 帮助开发者构建一个免费并且漂亮的博客网站，记录自己的思考并且提高自己的影响力
-    guestbook:
-      title: 留言板
-      description: 您的评论，会让该网站更精彩！
+    params:
+      author: Spoon 主题
+      authorDescription: 一个美观、快速并且专注于阅读的主题
+      info: 帮助开发者构建一个免费且漂亮的博客网站，记录思考并扩大影响力
+      guestbook:
+        title: 留言板
+        description: 您的评论会让这个网站更精彩！
     menu:
       main:
       - name: 文章

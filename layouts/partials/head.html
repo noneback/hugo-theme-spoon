@@ -4,16 +4,18 @@
 
     {{- /* Meta */}}
     <meta charset="utf-8">
-    <meta name="description" content="Ladder@{{- with .Description }}{{ . }}{{- else }}{{- if or .IsPage .IsSection}}
-    {{- .Summary | default (printf "%s - %s" .Title  site.Title) }}{{- else }}
-    {{- with site.Params.description }}{{ . }}{{- end }}{{- end }}{{- end -}}">
+    {{- $description := site.Params.description | default site.Title -}}
+    {{- with .Description }}{{ $description = . }}{{ else }}{{ if or .IsPage .IsSection }}{{ $description = .Summary | default (printf "%s - %s" .Title site.Title) }}{{ end }}{{ end -}}
+    <meta name="description" content="{{ $description | plainify }}">
     <meta name="author" content="{{ site.Params.author }}">
     <link rel="canonical" href="{{ if .Params.canonicalURL -}} {{ trim .Params.canonicalURL " " }} {{- else -}} {{ .Permalink }} {{- end }}">
     {{- if site.Params.analytics.google.SiteVerificationTag }}
         <meta name="google-site-verification" content="{{ site.Params.analytics.google.SiteVerificationTag }}">
     {{- end }}
 
-    <link rel="alternate" type="application/rss+xml" href="{{.Site.BaseURL }}/index.xml" title="{{ .Site.Title }}">
+    {{- with .OutputFormats.Get "RSS" }}
+    <link rel="alternate" type="{{ .MediaType.Type }}" href="{{ .RelPermalink }}" title="{{ $.Site.Title }}">
+    {{- end }}
 
     {{ partial "common/analytics.html" . }}
     {{ partial "common/extensions.html" . }}
@@ -28,22 +30,7 @@
     <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous" media="screen" />
 
     {{ if .Site.Params.options.showDarkMode -}}
-        {{ $darkModeInit := resources.Get "js/darkmode-init.js" | js.Build | minify -}}
+        {{ $darkModeInit := resources.Get "js/darkmode-init.js" | js.Build (dict "params" (dict "darkModeTheme" (site.Params.darkModeTheme | default "data-dark-mode"))) | minify -}}
         <script>{{ $darkModeInit.Content | safeJS }}</script>
     {{ end -}}
-
-    {{ if .IsPage }}
-    <style>
-        .reading-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: var(--fg-color, #333);
-            z-index: 9999;
-            transition: width 0.1s ease;
-        }
-    </style>
-    {{ end }}
 </head>

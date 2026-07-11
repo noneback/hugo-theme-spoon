@@ -1,15 +1,18 @@
-const globalDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-const localMode = localStorage.getItem('theme');
+import * as params from '@params';
 
-if (globalDark && (localMode === null)) {
-  localStorage.setItem('theme', 'dark');
-  document.documentElement.setAttribute('data-dark-mode', '');
+const darkModeTheme = params.darkModeTheme || 'data-dark-mode';
+const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches ?? false;
+let storedTheme = null;
+
+try {
+  storedTheme = window.localStorage.getItem('theme');
+} catch (_) {
+  // Storage can be unavailable in privacy-restricted browser contexts.
 }
 
-if (globalDark && (localMode === 'dark')) {
-  document.documentElement.setAttribute('data-dark-mode', '');
-}
-
-if (localMode === 'dark') {
-  document.documentElement.setAttribute('data-dark-mode', '');
+if (storedTheme === 'dark' || (storedTheme === null && prefersDark)) {
+  document.documentElement.setAttribute(darkModeTheme, '');
+  document.documentElement.style.colorScheme = 'dark';
+} else {
+  document.documentElement.style.colorScheme = 'light';
 }

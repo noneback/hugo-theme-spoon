@@ -72,7 +72,7 @@ cd myblog
 2. 添加主题：
 
 ```bash
-git clone https://github.com/your-username/hugo-theme-spoon themes/hugo-theme-spoon
+git clone https://github.com/noneback/hugo-theme-spoon themes/hugo-theme-spoon
 ```
 
 3. 配置站点（`config.yml`）：
@@ -92,6 +92,7 @@ params:
   authorDescription: 你的简介
   info: 你的博客信息
   favicon: /images/avatar.ico
+  darkModeTheme: data-dark-mode # 或 icy-dark-mode
   options:
     showDarkMode: true
     enableImgZooming: true
@@ -106,6 +107,22 @@ hugo server -D
 ```
 
 在浏览器中打开 http://localhost:1313/
+
+列表页必须使用 Hugo section 结构。例如应创建 `content/blog/_index.md`，不要创建 `content/blog.md`；后者会被 Hugo 当成普通文章，无法使用博客列表模板。
+
+### 文章级显示控制
+
+可以在文章 front matter 中按需关闭阅读功能：
+
+```yaml
+toc: false
+related: false
+comments: false
+readingProgress: false
+imageZoom: false
+```
+
+宽屏下，启用目录后会显示在正文左侧的空白区域，不压缩正文阅读宽度，并自动高亮当前阅读章节。
 
 ## 使用方法
 
@@ -148,6 +165,10 @@ graph TD
 languages:
   zh:
     label: 中文
+    params:
+      author: 你的名字
+      guestbook:
+        title: 留言板
     menu:
       main:
         - name: 文章

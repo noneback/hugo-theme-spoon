@@ -8,7 +8,7 @@
 
         {{ if .Site.Params.avatarURL }}
         {{ with .Site.Params.avatarURL }}
-        <div class="avatar"><img src="{{ . | relURL }}" alt="avatar"></div>
+        <div class="avatar"><img src="{{ . | relURL }}" alt="{{ $.Site.Params.author }}" loading="eager" decoding="async" fetchpriority="high"></div>
         {{ end }}
         {{ end }}
     </div>
@@ -18,4 +18,3 @@
     </div>
 
 </div>
-

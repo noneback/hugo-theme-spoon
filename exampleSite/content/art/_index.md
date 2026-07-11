@@ -1,4 +1,3 @@
 ---
 title: "Art"
-layout: "art"
 ---

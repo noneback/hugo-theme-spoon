@@ -48,3 +48,18 @@ other = "已复制"
 
 [toc_title]
 other = "目录"
+
+[close_toc]
+other = "关闭目录"
+
+[toggle_menu]
+other = "打开或关闭导航菜单"
+
+[toggle_theme]
+other = "切换浅色或深色主题"
+
+[go_to_top]
+other = "返回顶部"
+
+[article_navigation]
+other = "文章导航"

@@ -1,4 +1,4 @@
-# Welcome to the hugo-ladder docs!
+# Hugo Theme Spoon documentation
 
 ## Basic Usage
 
@@ -11,4 +11,3 @@
 * [Comment System](comment-system.md)
 * [Analytics](analytics.md)
 * [Analytics Umami](umami.md)
-

@@ -1,13 +1,14 @@
 {{ define "content" }}
 <div class="card-wrapper">
   <div>
+    <h1>{{ .Title }}</h1>
     <div class="card-list">
       {{ range .Paginator.Pages }}
         <article>
           <a href="{{ .RelPermalink }}">
             <div class="card">
                 <div class="card-thumbnail">
-                    <img class="card-img" src="{{ .Params.image }}">
+                    <img class="card-img" src="{{ .Params.image }}" alt="{{ .Title }}" loading="lazy" decoding="async">
                 </div>
                 <div class="card-header">
                   <div class="card-title">
@@ -27,10 +28,10 @@
     {{ if gt .Paginator.TotalPages 1 }}
     <div class="paginator">
       {{ if .Paginator.HasPrev }}
-      <a class="prev" href="{{ .Paginator.Prev.URL }}">&larr;&nbsp;&nbsp;Pre Page</a>
+      <a class="prev" href="{{ .Paginator.Prev.URL }}">&larr;&nbsp;&nbsp;{{ i18n "prev_page" }}</a>
       {{ end }}
       {{ if .Paginator.HasNext }}
-      <a class="next" href="{{ .Paginator.Next.URL }}">Next Page&nbsp;&nbsp;&rarr;</a>
+      <a class="next" href="{{ .Paginator.Next.URL }}">{{ i18n "next_page" }}&nbsp;&nbsp;&rarr;</a>
       {{ end }}
     </div>
     {{ end }}

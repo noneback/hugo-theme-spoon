@@ -29,3 +29,32 @@ other = "Пов'язані ресурси"
 one = "Рекомендовані пости"
 other = "Рекомендовані пости"
 
+[prev_page]
+other = "Попередня сторінка"
+
+[next_page]
+other = "Наступна сторінка"
+
+[copy]
+other = "Копіювати"
+
+[copied]
+other = "Скопійовано"
+
+[toc_title]
+other = "Зміст"
+
+[close_toc]
+other = "Закрити зміст"
+
+[toggle_menu]
+other = "Відкрити або закрити меню навігації"
+
+[toggle_theme]
+other = "Перемкнути світлу або темну тему"
+
+[go_to_top]
+other = "Повернутися нагору"
+
+[article_navigation]
+other = "Навігація статтями"

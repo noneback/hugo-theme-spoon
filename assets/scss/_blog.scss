@@ -20,23 +20,42 @@
 
 .blog-single {
   position: relative;
-  max-width: 80rem;
+  max-width: 92rem;
   margin: auto;
   padding: 1.5rem;
 
-  .blog-toc {
-    top: 4rem;
-    height: auto;
-    overflow-y: auto;
+  .article-layout {
+    display: block;
 
-    .toc-container {
-      margin-bottom: 1rem;
+    &.has-toc {
+      @media screen and (min-width: 1440px) {
+        display: grid;
+        grid-template-columns: 22rem minmax(0, 92rem);
+        align-items: start;
+        gap: 2rem;
+        width: 116rem;
+        margin-left: -24rem;
+      }
+    }
+  }
+
+  .blog-toc {
+    margin-bottom: 1.5rem;
+
+    @media screen and (min-width: 1440px) {
+      position: sticky;
+      top: 2rem;
+      grid-column: 1;
+      grid-row: 1;
+      max-height: calc(100vh - 4rem);
+      margin-bottom: 0;
+      overflow-y: auto;
     }
 
     .toc-container summary {
-      cursor: pointer;
       padding: 0.5rem 0;
-      font-size: 1.1rem;
+      font-size: 1.3rem;
+      cursor: pointer;
     }
 
     .toc-container summary:hover {
@@ -53,15 +72,15 @@
     }
 
     li {
-      margin-top: 0.375rem;
-      padding-top: 0.375rem;
+      margin-top: 0.2rem;
+      padding-top: 0.2rem;
     }
 
     li ul li {
       border-top: none;
-      padding-left: 3rem;
-      margin-top: 0.125rem;
-      padding-top: 0.125rem;
+      padding-left: 1.5rem;
+      margin-top: 0.1rem;
+      padding-top: 0.1rem;
     }
 
     li:not(:first-child) {
@@ -70,11 +89,27 @@
 
     a {
       display: block;
-      font-size: 1.50rem;
+      font-size: 1.25rem;
+      line-height: 1.45;
+      padding: 0.25rem 0;
     }
 
     a:hover {
       text-decoration: underline;
+    }
+
+    a.is-active {
+      color: $font-highlight-color;
+      font-weight: 700;
+      box-shadow: inset 3px 0 0 $font-highlight-color;
+      padding-left: 0.6rem;
+    }
+  }
+
+  .blog-content {
+    @media screen and (min-width: 1440px) {
+      grid-column: 2;
+      grid-row: 1;
     }
   }
 
@@ -83,6 +118,7 @@
     border-top: 1px solid $fg-color;
     padding-top: 1.5rem;
 
+    h2,
     h3 {
       margin-bottom: 1rem;
     }
@@ -137,6 +173,13 @@
 }
 
 .blog-content {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    scroll-margin-top: 2rem;
+  }
   p img {
     border-radius: 0.6rem;
   }
@@ -187,8 +230,3 @@
     margin: 0;
   }
 }
-
-
-
-
-

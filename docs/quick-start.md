@@ -1,13 +1,23 @@
-## how to install
+# Quick start
 
-Just click `Use this template` to create your blog site in https://github.com/guangzhengli/hugo-ladder-exampleSite
+Requirements: Hugo v0.140.0+ extended and Dart Sass.
 
-![4dmtph](https://cdn.jsdelivr.net/gh/guangzhengli/PicURL@master/uPic/4dmtph.png)
+```bash
+hugo new site myblog
+cd myblog
+git clone https://github.com/noneback/hugo-theme-spoon themes/hugo-theme-spoon
+cp themes/hugo-theme-spoon/config.yml.example hugo.yml
+mkdir -p content/blog
+hugo new content blog/first-post.md
+hugo server -D
+```
 
-Create a new repository(GitHub Pages) from hugo-ladder-exampleSite to enter : `username.github.io`. **replace the username by your GitHub account.**
+Create `content/blog/_index.md` to configure the blog landing page:
 
-Then configure the GitHub page setting following:
+```yaml
+---
+title: Blog
+---
+```
 
-![nsrExo](https://cdn.jsdelivr.net/gh/guangzhengli/PicURL@master/uPic/nsrExo.png)
-
-🎉🎉🎉 Open the browser and enter: https://username.github.io 🎉🎉🎉
+See [Configuration](configurations.md) for comments, analytics, multilingual parameters, and dark themes.

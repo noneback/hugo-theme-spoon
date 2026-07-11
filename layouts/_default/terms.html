@@ -2,6 +2,8 @@
 
 <div class="tags">
 
+  <h1>{{ .Title }}</h1>
+
   <ul class="tags-list">
     {{- $type := .Type }}
     {{- range $key, $value := .Data.Terms.Alphabetical }}

@@ -1,4 +1,4 @@
-<p>
+<p class="blog-meta">
   <small>
     {{ .Date | time.Format ":date_long" }}&nbsp;· {{ i18n "word_count" .WordCount -}}&nbsp;· {{ i18n "reading_time" .ReadingTime -}}
   </small>
@@ -13,4 +13,4 @@
       {{ end }}
     </small>
   {{ end }}
-<p>
+</p>

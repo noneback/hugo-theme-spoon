@@ -47,3 +47,18 @@ other = "Copied"
 
 [toc_title]
 other = "Table of Contents"
+
+[close_toc]
+other = "Close table of contents"
+
+[toggle_menu]
+other = "Toggle navigation menu"
+
+[toggle_theme]
+other = "Toggle light or dark theme"
+
+[go_to_top]
+other = "Go to top"
+
+[article_navigation]
+other = "Article navigation"

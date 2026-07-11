@@ -110,6 +110,39 @@
   }
 }
 
+[data-dark-mode] .code-block {
+  background: $color-dark-code-bg;
+  border-color: $dark-border;
+
+  .code-block-header {
+    color: $body-color-dark;
+    background: rgba(255, 255, 255, 0.04);
+    border-bottom-color: $dark-border;
+  }
+
+  .code-block-title { color: #e6edf3; }
+  .code-block-language { color: $dark-muted; }
+
+  .copy-code {
+    color: $body-color-dark;
+    background: rgba(122, 162, 247, 0.22);
+    border-color: rgba(122, 162, 247, 0.4);
+
+    &:hover { background: rgba(122, 162, 247, 0.38); }
+  }
+
+  .highlight {
+    background: transparent;
+    border: 0;
+
+    pre,
+    pre code { background: $color-dark-code-bg; }
+  }
+
+  .chroma .hl { background: rgba(88, 166, 255, 0.16); }
+  .chroma .line.hl { border-left-color: #58a6ff; }
+}
+
 // ====== Blockquote ======
 [data-dark-mode] blockquote {
   border-left: 3px solid $dark-accent !important;

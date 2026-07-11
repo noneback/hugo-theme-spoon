@@ -59,6 +59,12 @@
       border-top: solid 2px $gray-800;
       border-bottom: solid 2px $gray-800;
       transition: opacity 0.25s, max-height 0.15s linear;
+
+      &.is-open {
+        visibility: visible;
+        opacity: 1;
+        max-height: 100rem;
+      }
     }
 
     .navigation-item {
@@ -146,54 +152,37 @@
     }
   }
 
-  #menu-toggle {
-    display: none;
-
-    @media only screen and (max-width: 768px) {
-      &:checked+label>i {
-        color: $alt-bg-color;
-      }
-
-      &:checked+label+ul {
-        visibility: visible;
-        opacity: 1;
-        max-height: 100rem;
-      }
-    }
-  }
-
   .menu-button {
     display: none;
+    border: 0;
+    background: transparent;
 
     @media only screen and (max-width: 768px) {
       position: relative;
-      display: block;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
       font-size: 2.4rem;
       font-weight: 400;
       float: right;
+      width: 4.4rem;
+      height: 4.4rem;
+      padding: 0;
+      cursor: pointer;
 
       span {
         display: block;
         background: $fg-color;
-        width: 1.5rem;
+        width: 2.2rem;
         height: 2px;
-      }
-
-      span:nth-child(1) {
-        margin-bottom: .5rem;
-      }
-
-      span:nth-child(3) {
-        margin-top: .5rem;
       }
     }
 
-    i {
-
-      &:hover,
-      &:focus {
-        color: $alt-fg-color;
-      }
+    &:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 2px;
     }
   }
 }

@@ -1,17 +1,22 @@
 {{ if .Site.Params.comments.utteranc.enable }}
-<div class="comments">
+<div class="comments" id="utterances-comments">
   <script>
-      const getTheme = window.localStorage && window.localStorage.getItem("theme");
-      let theme = getTheme === 'dark' ? 'github-dark' : 'github-light';
-      let s = document.createElement('script');
-      s.src = 'https://utteranc.es/client.js';
-      s.setAttribute('repo', '{{ .Site.Params.comments.utteranc.repo }}');
-      s.setAttribute('issue-term', '{{ .Site.Params.comments.utteranc.issueTerm }}');
-      s.setAttribute('theme', theme);
-      s.setAttribute('crossorigin', 'anonymous');
-      s.setAttribute('async', '');
-      document.querySelector('div.comments').innerHTML = '';
-      document.querySelector('div.comments').appendChild(s);
+    (() => {
+      const config = {{ dict
+        "repo" .Site.Params.comments.utteranc.repo
+        "issueTerm" (.Site.Params.comments.utteranc.issueTerm | default "pathname")
+        "darkModeTheme" (.Site.Params.darkModeTheme | default "data-dark-mode")
+        | jsonify | safeJS }};
+      const isDark = document.documentElement.hasAttribute(config.darkModeTheme);
+      const script = document.createElement('script');
+      script.src = 'https://utteranc.es/client.js';
+      script.setAttribute('repo', config.repo);
+      script.setAttribute('issue-term', config.issueTerm);
+      script.setAttribute('theme', isDark ? 'github-dark' : 'github-light');
+      script.crossOrigin = 'anonymous';
+      script.async = true;
+      document.getElementById('utterances-comments').appendChild(script);
+    })();
   </script>
 </div>
 {{ end }}

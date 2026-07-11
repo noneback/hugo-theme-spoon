@@ -13,6 +13,8 @@
 
 .top-link {
   visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
   position: fixed;
   bottom: 5rem;
   right: 5rem;
@@ -29,9 +31,15 @@
   }
 }
 
-.top-link:focus,
-#theme-toggle:focus {
-  outline: 0;
+.top-link.is-visible {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.top-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
 .top-link:hover {
@@ -41,4 +49,14 @@
 .top-link {
   font-size: 80%;
   color: $fg-color;
+}
+
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: $fg-color;
+  z-index: 9999;
 }

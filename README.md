@@ -31,7 +31,7 @@
 | Image Loading | Eager | **Lazy loading** |
 | Related Posts | - | **Auto recommendations** |
 | i18n | Partial | **Full i18n with more keys** |
-| Code Highlight | highlight.js | **Hugo Chroma + GitHub Dark theme** |
+| Code Highlight | highlight.js | **Hugo Chroma, filename headers, copy button, line focus, and source snippets** |
 
 ## Features
 
@@ -72,7 +72,7 @@ cd myblog
 2. Add the theme:
 
 ```bash
-git clone https://github.com/your-username/hugo-theme-spoon themes/hugo-theme-spoon
+git clone https://github.com/noneback/hugo-theme-spoon themes/hugo-theme-spoon
 ```
 
 3. Configure your site (`config.yml`):
@@ -92,6 +92,7 @@ params:
   authorDescription: Your description
   info: Your blog info
   favicon: /images/avatar.ico
+  darkModeTheme: data-dark-mode # or icy-dark-mode
   options:
     showDarkMode: true
     enableImgZooming: true
@@ -106,6 +107,22 @@ hugo server -D
 ```
 
 Open http://localhost:1313/ in your browser.
+
+Create list pages as Hugo sections. For example, use `content/blog/_index.md` rather than `content/blog.md`; otherwise Hugo treats the landing page as a regular article instead of using the blog list template.
+
+### Per-article controls
+
+The reading experience can be adjusted in front matter:
+
+```yaml
+toc: false
+related: false
+comments: false
+readingProgress: false
+imageZoom: false
+```
+
+On wide screens, enabled table-of-contents navigation sits in the left gutter beside the article without reducing the reading column, and highlights the current section.
 
 ## Usage
 
@@ -155,6 +172,10 @@ languages:
           weight: 1
   zh:
     label: 中文
+    params:
+      author: 你的名字
+      guestbook:
+        title: 留言板
     menu:
       main:
         - name: 文章

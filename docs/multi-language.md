@@ -10,6 +10,8 @@ This theme supports the following languages:
 
 - English
 - Simplified Chinese
+- Ukrainian
+- Brazilian Portuguese
 
 ## Configure languages
 
@@ -85,4 +87,3 @@ other = "相关系列文章推荐"
 one = "推荐阅读"
 other = "推荐阅读"
 ```
-

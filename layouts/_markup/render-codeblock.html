@@ -1,0 +1,16 @@
+{{- $language := .Type | default "text" -}}
+{{- $title := index .Attributes "title" -}}
+<div class="code-block" data-language="{{ $language }}">
+  <div class="code-block-header">
+    <div class="code-block-meta">
+      {{ with $title }}
+      <span class="code-block-title" title="{{ $title }}">{{ $title }}</span>
+      {{ end }}
+      <span class="code-block-language">{{ $language }}</span>
+    </div>
+    <div class="code-block-actions">
+      <button class="copy-code" type="button" aria-label="{{ i18n "copy" }}">{{ i18n "copy" }}</button>
+    </div>
+  </div>
+  {{ (transform.HighlightCodeBlock .).Wrapped | safeHTML }}
+</div>

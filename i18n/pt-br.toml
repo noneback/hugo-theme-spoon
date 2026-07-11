@@ -32,3 +32,33 @@ other = "Recursos relacionados"
 [featured_posts]
 one = "Postagem em destaque"
 other = "Postagens em destaque"
+
+[prev_page]
+other = "Página anterior"
+
+[next_page]
+other = "Próxima página"
+
+[copy]
+other = "Copiar"
+
+[copied]
+other = "Copiado"
+
+[toc_title]
+other = "Índice"
+
+[close_toc]
+other = "Fechar índice"
+
+[toggle_menu]
+other = "Abrir ou fechar o menu de navegação"
+
+[toggle_theme]
+other = "Alternar tema claro ou escuro"
+
+[go_to_top]
+other = "Voltar ao topo"
+
+[article_navigation]
+other = "Navegação de artigos"

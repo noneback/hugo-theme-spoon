@@ -13,6 +13,21 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
 body {
   color: $fg-color;
   background-color: $bg-color;
@@ -145,30 +160,117 @@ small {
 
 // ====== Code Blocks ======
 
-// Highlight container
+// Code block container and header
+.code-block {
+  position: relative;
+  margin: 2rem 0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  max-width: 100%;
+  background: #f6f8fa;
+  border: 1px solid #d0d7de;
+
+  .code-block-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 3.8rem;
+    padding: 0.7rem 1rem 0.7rem 1.4rem;
+    color: #24292f;
+    background: #f6f8fa;
+    border-bottom: 1px solid #d0d7de;
+    font-family: $code-font-family;
+  }
+
+  .code-block-title {
+    min-width: 0;
+    overflow: hidden;
+    color: #24292f;
+    font-size: 1.2rem;
+    line-height: 1.4;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .code-block-meta {
+    display: inline-flex;
+    min-width: 0;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .code-block-actions {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .code-block-language {
+    color: #57606a;
+    font-size: 1.05rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .copy-code {
+    padding: 0.35rem 0.7rem;
+    color: #24292f;
+    background: #fff;
+    border: 1px solid #d0d7de;
+    border-radius: 0.4rem;
+    font-family: $font-family;
+    font-size: 1.1rem;
+    cursor: pointer;
+
+    &:hover {
+      background: #eaeef2;
+    }
+
+    &:focus-visible {
+      outline: 2px solid #0969da;
+      outline-offset: 2px;
+    }
+  }
+
+  .highlight {
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+
+    pre {
+      background: #f6f8fa;
+
+      code {
+        color: #24292f;
+      }
+    }
+  }
+
+  .chroma {
+    color: #24292f;
+
+    .k, .kc, .kd, .kn, .kp, .kr, .kt, .ow { color: #cf222e; }
+    .n, .na, .ni, .p { color: #24292f; }
+    .nb, .nf, .nx { color: #8250df; }
+    .nc, .nn { color: #953800; }
+    .nd, .nl, .nt { color: #0550ae; }
+    .no, .nv, .vc, .vg, .vi { color: #0550ae; }
+    .l, .ld, .m, .mb, .mf, .mh, .mi, .il, .mo { color: #0550ae; }
+    .s, .sa, .sb, .sc, .dl, .sd, .s2, .se, .sh, .si, .sx, .sr, .s1, .ss { color: #0a3069; }
+    .o { color: #cf222e; }
+    .c, .ch, .cm, .c1, .cs, .cp, .cpf { color: #6e7781; }
+  }
+}
+
+// Legacy highlight container
 .highlight {
   position: relative;
   margin: 2rem 0;
   border-radius: 0.75rem;
   overflow: hidden;
   max-width: 100%;
-
-  // Language label
-  &::before {
-    content: attr(data-lang);
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 0.3rem 0.8rem;
-    font-size: 1.1rem;
-    font-family: $code-font-family;
-    color: #8b949e;
-    background: rgba(0, 0, 0, 0.15);
-    border-bottom-left-radius: 0.5rem;
-    z-index: 2;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
 
   pre {
     margin: 0;
@@ -195,7 +297,7 @@ small {
     }
   }
 
-  // Copy button
+  // Copy button for code blocks rendered without the code block hook.
   .copy-code {
     position: absolute;
     top: 0.6rem;
@@ -220,6 +322,18 @@ small {
 
   &:hover .copy-code {
     opacity: 1;
+  }
+
+  .copy-code:focus-visible {
+    opacity: 1;
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+  }
+
+  @media (hover: none) {
+    .copy-code {
+      opacity: 1;
+    }
   }
 }
 
@@ -247,6 +361,21 @@ small {
 
   pre {
     padding: 1.5rem 2rem;
+  }
+}
+
+// Hugo Chroma marks selected lines with .hl. Keep the emphasis visible in
+// both numbered and unnumbered blocks.
+.chroma {
+  .hl {
+    background: rgba(9, 105, 218, 0.12);
+  }
+
+  .line.hl {
+    display: block;
+    margin: 0 -2rem;
+    padding: 0 2rem;
+    border-left: 3px solid #0969da;
   }
 }
 

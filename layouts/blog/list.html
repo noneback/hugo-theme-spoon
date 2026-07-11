@@ -1,6 +1,7 @@
 {{ define "content" }}
 <div class="blog-wrapper">
   <div>
+    <h1>{{ .Title }}</h1>
     <div class="blog-list">
       {{ range .Paginator.Pages }}
         <article>
@@ -19,10 +20,10 @@
     {{ if gt .Paginator.TotalPages 1 }}
     <div class="paginator">
       {{ if .Paginator.HasPrev }}
-      <a class="prev" href="{{ .Paginator.Prev.URL }}">&larr;&nbsp;&nbsp;Pre Page</a>
+      <a class="prev" href="{{ .Paginator.Prev.URL }}">&larr;&nbsp;&nbsp;{{ i18n "prev_page" }}</a>
       {{ end }}
       {{ if .Paginator.HasNext }}
-      <a class="next" href="{{ .Paginator.Next.URL }}">Next Page&nbsp;&nbsp;&rarr;</a>
+      <a class="next" href="{{ .Paginator.Next.URL }}">{{ i18n "next_page" }}&nbsp;&nbsp;&rarr;</a>
       {{ end }}
     </div>
     {{ end }}
