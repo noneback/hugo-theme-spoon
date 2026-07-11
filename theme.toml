@@ -11,3 +11,8 @@ min_version = "0.140.0"
 [author]
 name = "NoneBack"
 homepage = "https://github.com/noneback"
+
+[original]
+author = "guangzhengli"
+homepage = "https://github.com/guangzhengli"
+repo = "https://github.com/guangzhengli/hugo-theme-ladder"

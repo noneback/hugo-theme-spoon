@@ -17,7 +17,7 @@
 ---
 
 <p align="center">
-  <img src="images/screenshot.png" alt="Hugo Theme Spoon home page in light mode" width="100%"/>
+  <img src="https://raw.githubusercontent.com/noneback/hugo-theme-spoon/master/images/screenshot.png" alt="Hugo Theme Spoon home page in light mode" width="100%"/>
 </p>
 
 ---
@@ -32,8 +32,8 @@ Spoon keeps long-form articles readable while giving technical content first-cla
     <td align="center"><strong>Dark mode</strong></td>
   </tr>
   <tr>
-    <td><img src="images/code-light.png" alt="Code block in light mode"/></td>
-    <td><img src="images/code-dark.png" alt="Code block in dark mode"/></td>
+    <td><img src="https://raw.githubusercontent.com/noneback/hugo-theme-spoon/master/images/code-light.png" alt="Code block in light mode"/></td>
+    <td><img src="https://raw.githubusercontent.com/noneback/hugo-theme-spoon/master/images/code-dark.png" alt="Code block in dark mode"/></td>
   </tr>
 </table>
 
