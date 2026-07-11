@@ -52,6 +52,10 @@
   background-color: $color-dark-code-bg !important;
 }
 
+[icy-dark-mode] .highlight .lntd:first-child {
+  border-right-color: $color-dark-line;
+}
+
 [icy-dark-mode] .code-block {
   background: $color-dark-code-bg;
   border-color: $color-dark-line;

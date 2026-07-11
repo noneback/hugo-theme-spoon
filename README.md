@@ -6,13 +6,36 @@
 
 <p align="center">English | <a href="README.zh.md">简体中文</a></p>
 
+<p align="center">
+  <a href="https://hugo-theme-spoon.vercel.app/">Live Demo</a> ·
+  <a href="docs/quick-start.md">Quick Start</a> ·
+  <a href="docs/configurations.md">Configuration</a>
+</p>
+
 > **Note:** This theme is forked from [hugo-theme-ladder](https://github.com/guangzhengli/hugo-theme-ladder) by [guangzhengli](https://github.com/guangzhengli), and has been heavily modified, adapted, and extended with new features to support the latest Hugo versions and modern web standards. The original theme is no longer actively maintained.
 
 ---
 
 <p align="center">
-  <img src="images/screenshot.png" alt="Hugo Theme Spoon" width="800"/>
+  <img src="images/screenshot.png" alt="Hugo Theme Spoon home page in light mode" width="100%"/>
 </p>
+
+---
+
+## Reading and code previews
+
+Spoon keeps long-form articles readable while giving technical content first-class treatment. Code blocks support filenames, language labels, copy actions, original line numbers, focused lines, and separate light/dark palettes.
+
+<table>
+  <tr>
+    <td align="center"><strong>Light mode</strong></td>
+    <td align="center"><strong>Dark mode</strong></td>
+  </tr>
+  <tr>
+    <td><img src="images/code-light.png" alt="Code block in light mode"/></td>
+    <td><img src="images/code-dark.png" alt="Code block in dark mode"/></td>
+  </tr>
+</table>
 
 ---
 
@@ -25,8 +48,8 @@
 | Dark Mode | Basic | **Two themes + comprehensive coverage** |
 | Math Formulas | - | **KaTeX support** |
 | Flowcharts | - | **Mermaid support** |
-| TOC | Static | **Collapsible TOC** |
-| Code Block | Basic | **Line numbers + copy button** |
+| TOC | Static | **Wide-screen left companion + active section** |
+| Code Block | Basic | **Filename, line focus, source snippets, copy action** |
 | Reading Progress | - | **Progress bar** |
 | Image Loading | Eager | **Lazy loading** |
 | Related Posts | - | **Auto recommendations** |
@@ -41,8 +64,9 @@
 - **Multi-language** — Built-in i18n support (English, Chinese, Ukrainian, Portuguese)
 - **Responsive** — Mobile-first design, works on all devices
 - **Dart Sass** — Modern SCSS toolchain, no deprecated libsass dependency
-- **Code Highlight** — Hugo Chroma with GitHub Dark style, copy button, no external JS dependency
-- **Table of Contents** — Collapsible TOC for long articles
+- **Code Highlight** — Hugo Chroma with theme-aware palettes, filenames, line numbers, focused lines, and one-click copy
+- **Source Snippets** — Render maintained ranges from real repository files with the `code-file` shortcode
+- **Table of Contents** — Active-section navigation in the left desktop gutter, collapsible inline navigation on narrower screens
 - **KaTeX Math** — Beautiful math formula rendering (opt-in per page)
 - **Mermaid Diagrams** — Flowcharts with auto light/dark theme switching
 - **Reading Progress** — Visual progress bar on article pages
@@ -125,6 +149,24 @@ imageZoom: false
 On wide screens, enabled table-of-contents navigation sits in the left gutter beside the article without reducing the reading column, and highlights the current section.
 
 ## Usage
+
+### Code blocks
+
+Add an optional filename, line numbers, and focused lines using Hugo's native code-fence attributes:
+
+````md
+```go {title="internal/server/config.go",linenos=table,hl_lines=[2,"4-6"]}
+func LoadConfig() error {
+    return nil
+}
+```
+````
+
+To keep an article synchronized with code in the same repository, render a selected source range with its original line numbers:
+
+```md
+{{< code-file path="snippets/config.go" start="12" end="38" lang="go" highlight="18-20" >}}
+```
 
 ### Math Formulas
 

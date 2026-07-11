@@ -28,6 +28,34 @@ For wide viewports, expand the outer article container to include a dedicated TO
 
 ---
 
+## [LRN-20260711-011] correction
+
+**Logged**: 2026-07-11T16:35:00+08:00
+**Priority**: high
+**Status**: resolved
+**Area**: frontend
+
+### Summary
+A confirmed visual regression must be fixed and verified before handing the result back.
+
+### Details
+The line-number layout regression was correctly diagnosed, but the previous response stopped at explanation even though the ongoing workflow was implementation-oriented. The broken preview remained visible to the user.
+
+### Suggested Action
+When a user reports a regression during an active implementation cycle, apply the scoped fix, rebuild, and visually verify the exact affected page before responding.
+
+### Metadata
+- Source: user_feedback
+- Related Files: assets/scss/_blog.scss
+- Tags: workflow, visual-regression, code-block
+- Pattern-Key: implementation.fix-before-handoff
+
+### Resolution
+- **Resolved**: 2026-07-11T16:35:00+08:00
+- **Notes**: Restored a compact line-number column, vertical line numbers, and a full-width code column, then verified the preview.
+
+---
+
 ## [LRN-20260711-010] toc-gutter-width
 
 **Logged**: 2026-07-11T16:15:00+08:00

@@ -6,10 +6,12 @@
             <p>{{ .Site.Params.info | markdownify }}</p>
         </div>
 
-        {{ if .Site.Params.avatarURL }}
         {{ with .Site.Params.avatarURL }}
-        <div class="avatar"><img src="{{ . | relURL }}" alt="{{ $.Site.Params.author }}" loading="eager" decoding="async" fetchpriority="high"></div>
-        {{ end }}
+        {{- $avatarURL := . | relURL -}}
+        {{- with resources.Get (strings.TrimPrefix "/" .) -}}
+        {{- $avatarURL = .RelPermalink -}}
+        {{- end -}}
+        <div class="avatar"><img src="{{ $avatarURL }}" alt="{{ $.Site.Params.author }}" loading="eager" decoding="async" fetchpriority="high"></div>
         {{ end }}
     </div>
 
