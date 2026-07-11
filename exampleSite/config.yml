@@ -1,5 +1,5 @@
 baseURL: https://hugo-theme-spoon.vercel.app
-title: Hugo Theme Spoon
+title: Spoon
 theme: hugo-theme-spoon
 license: MIT
 licenselink: https://github.com/noneback/hugo-theme-spoon/blob/master/LICENSE
@@ -30,7 +30,7 @@ params:
     email: noneback@example.com
   brand: HOME
   avatarURL: /images/avatar.png
-  author: Hugo Theme Spoon
+  author: Spoon
   authorDescription: A beautiful, fast Hugo theme focused on Reading
   info: Build a free and beautiful blog site to record your thoughts and increase
     your influence

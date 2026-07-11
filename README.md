@@ -1,4 +1,4 @@
-<h1 align=center>Hugo Theme Spoon</h1>
+<h1 align=center>Spoon</h1>
 
 <h4 align=center>🌈 Clean | ⏩ Fast | 📰 Focus on Reading | 🌐 Multi-language | 🌙 Dark Mode | 📱 Mobile-first</h4>
 
@@ -17,7 +17,7 @@
 ---
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/noneback/hugo-theme-spoon/master/images/screenshot.png" alt="Hugo Theme Spoon home page in light mode" width="100%"/>
+  <img src="https://raw.githubusercontent.com/noneback/hugo-theme-spoon/master/images/screenshot.png" alt="Spoon home page in light mode" width="100%"/>
 </p>
 
 ---

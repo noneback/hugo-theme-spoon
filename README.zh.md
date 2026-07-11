@@ -1,4 +1,4 @@
-<h1 align=center>Hugo Theme Spoon</h1>
+<h1 align=center>Spoon</h1>
 
 <h4 align=center>🌈 简洁 | ⏩ 快速 | 📰 聚焦阅读 | 🌐 多语言 | 🌙 暗色模式 | 📱 移动优先</h4>
 
@@ -17,7 +17,7 @@
 ---
 
 <p align="center">
-  <img src="images/screenshot.png" alt="Hugo Theme Spoon 浅色首页" width="100%"/>
+  <img src="images/screenshot.png" alt="Spoon 浅色首页" width="100%"/>
 </p>
 
 ---

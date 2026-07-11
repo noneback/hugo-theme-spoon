@@ -14,7 +14,7 @@ markup:
     noClasses: false
 
 params:
-  description: A personal blog powered by Hugo Theme Spoon
+  description: A personal blog powered by Spoon
   brand: HOME
   avatarURL: /images/avatar.png
   favicon: /images/favicon.ico
